@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
+import { DM_Sans, DM_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
@@ -16,11 +16,40 @@ import { draftMode } from 'next/headers'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+const satoshi = localFont({
+  src: [
+    {
+      path: '../fonts/Satoshi-Variable.woff2',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/Satoshi-VariableItalic.woff2',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-satoshi',
+  display: 'swap',
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+})
+
+const dmMono = DM_Mono({
+  weight: ['300', '400', '500'],
+  subsets: ['latin'],
+  variable: '--font-dm-mono',
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(dmSans.className, satoshi.variable, dmMono.variable)}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />

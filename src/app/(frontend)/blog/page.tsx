@@ -15,7 +15,7 @@ export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
   const posts = await payload.find({
-    collection: 'posts',
+    collection: 'blogs',
     depth: 1,
     limit: 12,
     overrideAccess: false,
@@ -32,13 +32,13 @@ export default async function Page() {
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1>Blog</h1>
         </div>
       </div>
 
       <div className="container mb-8">
         <PageRange
-          collection="posts"
+          collection="blogs"
           currentPage={posts.page}
           limit={12}
           totalDocs={posts.totalDocs}
@@ -58,6 +58,6 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Posts`,
+    title: `Payload Website Template Blog`,
   }
 }

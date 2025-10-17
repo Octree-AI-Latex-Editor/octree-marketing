@@ -28,7 +28,6 @@ export const InitTheme: React.FC = () => {
 
     var themeToSet = '${defaultTheme}'
     var preference = window.localStorage.getItem('${themeLocalStorageKey}')
-
     if (themeIsValid(preference)) {
       themeToSet = preference
     } else {
@@ -38,8 +37,7 @@ export const InitTheme: React.FC = () => {
         themeToSet = implicitPreference
       }
     }
-
-    document.documentElement.setAttribute('data-theme', themeToSet)
+    document.documentElement.setAttribute('data-theme', '${defaultTheme}')
   })();
   `,
       }}

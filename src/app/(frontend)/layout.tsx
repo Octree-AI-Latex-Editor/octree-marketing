@@ -33,6 +33,7 @@ const satoshi = localFont({
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
+  variable: '--font-dm-sans',
 })
 
 const dmMono = DM_Mono({
@@ -46,7 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html
-      className={cn(dmSans.className, satoshi.variable, dmMono.variable)}
+      className={cn(satoshi.className, dmSans.variable, dmMono.variable)}
       lang="en"
       suppressHydrationWarning
     >

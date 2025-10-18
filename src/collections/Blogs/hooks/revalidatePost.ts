@@ -17,6 +17,7 @@ export const revalidateBlog: CollectionAfterChangeHook<Blog> = ({
 
       revalidatePath(path)
       revalidateTag('blogs-sitemap')
+      revalidateTag('footer-blogs') // Clear footer blog cache
     }
 
     // If the blog was previously published, we need to revalidate the old path
@@ -27,6 +28,7 @@ export const revalidateBlog: CollectionAfterChangeHook<Blog> = ({
 
       revalidatePath(oldPath)
       revalidateTag('blogs-sitemap')
+      revalidateTag('footer-blogs') // Clear footer blog cache
     }
   }
   return doc
@@ -41,6 +43,7 @@ export const revalidateDeleteBlog: CollectionAfterDeleteHook<Blog> = ({
 
     revalidatePath(path)
     revalidateTag('blogs-sitemap')
+    revalidateTag('footer-blogs') // Clear footer blog cache
   }
 
   return doc

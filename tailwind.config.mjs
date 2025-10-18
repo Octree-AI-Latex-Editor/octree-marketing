@@ -95,7 +95,7 @@ const config = {
       },
       fontFamily: {
         mono: ['var(--font-dm-mono)'],
-        satoshi: ['var(--font-satoshi)'],
+        heading: ['var(--font-dm-sans)'],
       },
       keyframes: {
         'accordion-down': {

@@ -5,9 +5,8 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { unstable_cache } from 'next/cache'
 
-import type { Footer, Blog } from '@/payload-types'
+import type { Footer } from '@/payload-types'
 
-import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 import { Logo } from '@/components/Logo/Logo'
 
@@ -48,17 +47,17 @@ export async function Footer() {
 
   // LaTeX Tools from Octree
   const toolsItems = [
-    { title: 'Image to LaTeX', href: 'https://tools.useoctree.com/image-to-latex' },
-    { title: 'Excel to LaTeX', href: 'https://tools.useoctree.com/excel-to-latex' },
-    { title: 'TikZ Generator', href: 'https://tools.useoctree.com/tikz-generator' },
-    { title: 'LaTeX Preview', href: 'https://tools.useoctree.com/latex-preview' },
-    { title: 'Markdown to LaTeX', href: 'https://tools.useoctree.com/markdown-to-latex' },
-    { title: 'Citation Generator', href: 'https://tools.useoctree.com/citation-generator' },
-    { title: 'MathML to LaTeX', href: 'https://tools.useoctree.com/mathml-to-latex' },
-    { title: 'AI LaTeX Generator', href: 'https://tools.useoctree.com/ai-latex-generator' },
-    { title: 'HTML to LaTeX', href: 'https://tools.useoctree.com/html-to-latex' },
-    { title: 'Mermaid to LaTeX', href: 'https://tools.useoctree.com/mermaid-to-latex' },
-    { title: 'Pgfplots Generator', href: 'https://tools.useoctree.com/pgfplots-generator' },
+    { title: 'Math to LaTeX', href: 'https://tools.useoctree.com/tools/math-to-latex' },
+    { title: 'Excel to LaTeX', href: 'https://tools.useoctree.com/tools/table-to-latex' },
+    { title: 'TikZ Generator', href: 'https://tools.useoctree.com/tools/tikz-generator' },
+    { title: 'LaTeX Preview', href: 'https://tools.useoctree.com/tools/latex-preview' },
+    { title: 'Markdown to LaTeX', href: 'https://tools.useoctree.com/tools/markdown-to-latex' },
+    { title: 'Citation Generator', href: 'https://tools.useoctree.com/tools/citation-generator' },
+    { title: 'MathML to LaTeX', href: 'https://tools.useoctree.com/tools/mathml-to-latex' },
+    { title: 'AI LaTeX Generator', href: 'https://tools.useoctree.com/tools/ai-latex-generator' },
+    { title: 'HTML to LaTeX', href: 'https://tools.useoctree.com/tools/html-to-latex' },
+    { title: 'Mermaid to LaTeX', href: 'https://tools.useoctree.com/tools/mermaid-to-latex' },
+    { title: 'Pgfplots Generator', href: 'https://tools.useoctree.com/tools/pgfplots-generator' },
   ]
 
   return (

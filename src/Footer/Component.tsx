@@ -133,7 +133,7 @@ export async function Footer() {
         {/* Bottom section */}
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            © {new Date().getFullYear()} Payload Website Template. All rights reserved.
+            © {new Date().getFullYear()} Octree. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -34,8 +35,8 @@ export default function AboutPage() {
               About <span className="text-[#478eff]">Our Story</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#636363] font-medium tracking-[-0.02]">
-              We're on a mission to make research document creation effortless and accessible for
-              everyone.
+              We&apos;re on a mission to make research document creation effortless and accessible
+              for everyone.
             </p>
           </div>
         </div>
@@ -49,10 +50,10 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-lg md:text-xl text-[#636363] leading-relaxed mb-4">
-              We believe that creating high-quality research documents shouldn't require mastering
-              complex syntax or spending hours on formatting. That's why we've built a modern,
-              AI-powered platform that lets you focus on what matters most — your ideas and
-              research.
+              We believe that creating high-quality research documents shouldn&apos;t require
+              mastering complex syntax or spending hours on formatting. That&apos;s why we&apos;ve
+              built a modern, AI-powered platform that lets you focus on what matters most — your
+              ideas and research.
             </p>
             <p className="text-lg md:text-xl text-[#636363] leading-relaxed">
               Our platform combines the power of artificial intelligence with an intuitive interface
@@ -116,8 +117,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold text-black mb-3">Innovation</h3>
               <p className="text-[#636363] leading-relaxed">
-                We leverage cutting-edge AI technology to push the boundaries of what's possible in
-                document creation.
+                We leverage cutting-edge AI technology to push the boundaries of what&apos;s
+                possible in document creation.
               </p>
             </div>
 
@@ -141,8 +142,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold text-black mb-3">Community</h3>
               <p className="text-[#636363] leading-relaxed">
-                We're building more than software — we're creating a community of researchers and
-                creators.
+                We&apos;re building more than software — we&apos;re creating a community of
+                researchers and creators.
               </p>
             </div>
           </div>
@@ -158,12 +159,12 @@ export default function AboutPage() {
             </h2>
             <p className="text-lg md:text-xl text-[#636363] leading-relaxed mb-8">
               Our team has experienced firsthand the challenges of creating research documents.
-              We've been there — struggling with LaTeX syntax, wrestling with formatting, and losing
-              precious time on things that should be simple. That's why we're passionate about
-              building tools that eliminate these pain points.
+              We&apos;ve been there — struggling with LaTeX syntax, wrestling with formatting, and
+              losing precious time on things that should be simple. That&apos;s why we&apos;re
+              passionate about building tools that eliminate these pain points.
             </p>
             <p className="text-lg md:text-xl text-[#636363] leading-relaxed">
-              We're a small but dedicated team of engineers, designers, and researchers working
+              We&apos;re a small but dedicated team of engineers, designers, and researchers working
               together to create the best document creation experience possible.
             </p>
           </div>
@@ -180,12 +181,12 @@ export default function AboutPage() {
             Join thousands of researchers already using our platform to create better documents
             faster.
           </p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[#478eff] rounded-full hover:bg-[#3a7ae0] transition-colors duration-200 shadow-sm"
           >
             Try Now
-          </a>
+          </Link>
         </div>
       </div>
     </main>

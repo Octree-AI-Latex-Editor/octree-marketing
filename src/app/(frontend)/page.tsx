@@ -31,7 +31,7 @@ export default function Page() {
           <div className="mb-6">
             <div className="max-w-5xl mx-auto px-4">
               <h1 className="text-[32px] md:text-[48px] lg:text-[56px] text-black leading-[1.05] tracking-tight font-heading">
-                <span className="inline-block">Write LaTeX like you think</span>
+                <span className="inline-block">Write research documents with AI</span>
                 <br />
                 <span className="inline-block text-[#478eff]">The modern Overleaf alternative</span>
               </h1>

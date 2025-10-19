@@ -66,8 +66,6 @@ export function Pricing() {
           features={enterpriseFeatures}
           buttonText="Contact Sales"
           buttonHref="https://cal.com/basilyusuf1709/quick-chat"
-          isDark
-          isEnterprise
         />
       </div>
     </div>
@@ -112,7 +110,6 @@ function PricingCard({
   buttonText,
   buttonHref,
   isDark = false,
-  isEnterprise = false,
 }: {
   icon: React.ReactNode
   name: string
@@ -122,52 +119,40 @@ function PricingCard({
   buttonText: string
   buttonHref?: string
   isDark?: boolean
-  isEnterprise?: boolean
 }) {
   return (
     <div
       className={cn(
         'p-5 md:p-7 flex flex-col gap-6 md:gap-8 border-2 rounded-2xl md:rounded-3xl shadow-sm',
-        isEnterprise
-          ? 'bg-[#1e3a8a] border-blue-800'
-          : isDark
-            ? 'bg-primary border-neutral-100'
-            : 'border-neutral-100',
+        isDark ? 'bg-primary border-neutral-100' : 'border-neutral-100',
       )}
     >
       <div className="flex flex-col gap-4 md:gap-6">
         <span
           className={cn(
             'flex items-center gap-1.5 py-2 pl-2.5 pr-3 rounded-full w-fit font-medium text-sm md:text-base',
-            isEnterprise || isDark ? 'bg-white text-black' : 'bg-primary text-white',
+            isDark ? 'bg-white text-black' : 'bg-primary text-white',
           )}
         >
           {icon}
           {name}
         </span>
 
-        <p className={cn('text-base md:text-lg', (isDark || isEnterprise) && 'text-white')}>
-          {description}
-        </p>
+        <p className={cn('text-base md:text-lg', isDark && 'text-white')}>{description}</p>
 
-        <div
-          className={cn(
-            'text-2xl md:text-3xl font-medium',
-            (isDark || isEnterprise) && 'text-white',
-          )}
-        >
+        <div className={cn('text-2xl md:text-3xl font-medium', isDark && 'text-white')}>
           {price}
         </div>
       </div>
 
       <div className="flex flex-col gap-3">
         {features.map((feature) => (
-          <FeatureItem key={feature} text={feature} isDark={isDark || isEnterprise} />
+          <FeatureItem key={feature} text={feature} isDark={isDark} />
         ))}
       </div>
 
       <PrimaryButton
-        className={isDark || isEnterprise ? 'from-white to-white text-black' : undefined}
+        className={isDark ? 'from-white to-white text-black' : undefined}
         href={buttonHref}
       >
         {buttonText}

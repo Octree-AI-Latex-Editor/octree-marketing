@@ -3,7 +3,7 @@ import { revalidatePath, revalidateTag } from 'next/cache'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json().catch(() => ({}))
+    const body = await request.json()
     const { paths = [], tags = [] } = body
 
     const results = {

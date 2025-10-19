@@ -5,7 +5,7 @@ export const AboutBlock: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16">
+      <div className="relative -mt-32 pt-32 pb-16">
         <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-[400px] blur-[20px] rounded-full overflow-hidden z-[1] pointer-events-none"
           style={{

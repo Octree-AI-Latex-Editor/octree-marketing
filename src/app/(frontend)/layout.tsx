@@ -4,6 +4,7 @@ import { cn } from '@/utilities/ui'
 import { DM_Sans, DM_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import React from 'react'
+import { Analytics } from '@vercel/analytics/next'
 
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
@@ -68,6 +69,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   )

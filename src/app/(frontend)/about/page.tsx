@@ -171,7 +171,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* CTA Section */}
       <div className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-[32px] md:text-[40px] text-black leading-[1.2] tracking-tight font-heading mb-6">

@@ -1,20 +1,5 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: 'About Us | Octree',
-    description:
-      'Learn more about our mission to revolutionize research document creation with AI-powered tools.',
-    openGraph: mergeOpenGraph({
-      title: 'About Us | Octree',
-      description:
-        'Learn more about our mission to revolutionize research document creation with AI-powered tools.',
-      url: '/about',
-    }),
-  }
-}
+import { generateMetadata } from '../[slug]/page'
 
 export default function AboutPage() {
   return (
@@ -191,3 +176,5 @@ export default function AboutPage() {
     </main>
   )
 }
+
+export { generateMetadata }

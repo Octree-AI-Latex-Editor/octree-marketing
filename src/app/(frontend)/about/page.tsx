@@ -1,5 +1,15 @@
+import { generateMeta } from '@/utilities/generateMeta'
+import { Metadata } from 'next'
 import Link from 'next/link'
-import { generateMetadata } from '../[slug]/page'
+import { queryPageBySlug } from '@/app/(frontend)/[slug]/page'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await queryPageBySlug({
+    slug: 'about',
+  })
+
+  return generateMeta({ doc: page })
+}
 
 export default function AboutPage() {
   return (
@@ -176,5 +186,3 @@ export default function AboutPage() {
     </main>
   )
 }
-
-export { generateMetadata }

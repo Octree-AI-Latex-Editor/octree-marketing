@@ -230,6 +230,10 @@ export interface Blog {
     };
     [k: string]: unknown;
   };
+  /**
+   * Write your content in Markdown. It will be converted to rich text automatically. Note: Blocks (Banner, Code, Media) cannot be represented in Markdown and will be lost if you edit via Markdown.
+   */
+  markdown?: string | null;
   relatedPosts?: (number | Blog)[] | null;
   categories?: (number | Category)[] | null;
   meta?: {
@@ -1132,6 +1136,7 @@ export interface BlogsSelect<T extends boolean = true> {
   title?: T;
   heroImage?: T;
   content?: T;
+  markdown?: T;
   relatedPosts?: T;
   categories?: T;
   meta?:

@@ -7,6 +7,18 @@ import {
   HorizontalRuleFeature,
   InlineToolbarFeature,
   lexicalEditor,
+  EXPERIMENTAL_TableFeature,
+  UnorderedListFeature,
+  LinkFeature,
+  BoldFeature,
+  ItalicFeature,
+  UnderlineFeature,
+  StrikethroughFeature,
+  OrderedListFeature,
+  ChecklistFeature,
+  convertMarkdownToLexical,
+  convertLexicalToMarkdown,
+  editorConfigFactory,
 } from '@payloadcms/richtext-lexical'
 
 import { authenticated } from '../../access/authenticated'
@@ -92,15 +104,120 @@ export const Blogs: CollectionConfig<'blogs'> = {
                   return [
                     ...rootFeatures,
                     HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+                    BoldFeature(),
+                    ItalicFeature(),
+                    UnderlineFeature(),
+                    StrikethroughFeature(),
                     BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
                     HorizontalRuleFeature(),
+                    EXPERIMENTAL_TableFeature(),
+                    UnorderedListFeature(),
+                    OrderedListFeature(),
+                    ChecklistFeature(),
+                    LinkFeature(),
                   ]
                 },
               }),
               label: false,
               required: true,
+            },
+            {
+              name: 'markdown',
+              type: 'textarea',
+              admin: {
+                description:
+                  'Write your content in Markdown. It will be converted to rich text automatically. Note: Blocks (Banner, Code, Media) cannot be represented in Markdown and will be lost if you edit via Markdown.',
+                rows: 20,
+              },
+              hooks: {
+                afterRead: [
+                  async ({ siblingData, siblingFields }) => {
+                    const data = siblingData['content']
+                    if (!data) {
+                      return ''
+                    }
+                    try {
+                      const contentField = siblingFields.find(
+                        (field) => 'name' in field && field.name === 'content',
+                      )
+                      if (!contentField || contentField.type !== 'richText') {
+                        return ''
+                      }
+                      const markdown = convertLexicalToMarkdown({
+                        data,
+                        editorConfig: editorConfigFactory.fromField({
+                          field: contentField,
+                        }),
+                      })
+                      return markdown
+                    } catch (error) {
+                      console.error('Error converting to markdown:', error)
+                      return ''
+                    }
+                  },
+                ],
+                beforeChange: [
+                  async ({ value, originalDoc, siblingData, siblingFields }) => {
+                    // Only convert markdown to content if:
+                    // 1. Markdown field has content
+                    // 2. The markdown value has actually changed from what was previously stored
+                    if (!value) {
+                      return undefined
+                    }
+
+                    // Get the previous markdown representation to check if it changed
+                    const previousContent = originalDoc?.content
+                    if (previousContent) {
+                      try {
+                        const contentField = siblingFields.find(
+                          (field) => 'name' in field && field.name === 'content',
+                        )
+                        if (contentField && contentField.type === 'richText') {
+                          const previousMarkdown = convertLexicalToMarkdown({
+                            data: previousContent,
+                            editorConfig: editorConfigFactory.fromField({
+                              field: contentField,
+                            }),
+                          })
+
+                          // If markdown hasn't changed, don't overwrite content
+                          // This prevents losing blocks when saving without editing markdown
+                          if (previousMarkdown === value) {
+                            return undefined
+                          }
+                        }
+                      } catch (error) {
+                        console.error('Error checking previous markdown:', error)
+                      }
+                    }
+
+                    // If we got here, markdown has changed - convert it
+                    try {
+                      const contentField = siblingFields.find(
+                        (field) => 'name' in field && field.name === 'content',
+                      )
+                      if (!contentField || contentField.type !== 'richText') {
+                        return undefined
+                      }
+                      const lexicalJSON = convertMarkdownToLexical({
+                        markdown: value,
+                        editorConfig: editorConfigFactory.fromField({
+                          field: contentField,
+                        }),
+                      })
+                      // Update the content field with converted rich text
+                      siblingData['content'] = lexicalJSON
+                    } catch (error) {
+                      console.error('Error converting markdown:', error)
+                    }
+
+                    // Don't save the markdown field to database
+                    return undefined
+                  },
+                ],
+              },
             },
           ],
           label: 'Content',

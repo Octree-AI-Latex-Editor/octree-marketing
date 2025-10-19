@@ -1,19 +1,9 @@
-import { generateMeta } from '@/utilities/generateMeta'
-import { Metadata } from 'next'
 import Link from 'next/link'
-import { queryPageBySlug } from '@/app/(frontend)/[slug]/page'
+import React from 'react'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await queryPageBySlug({
-    slug: 'about',
-  })
-
-  return generateMeta({ doc: page })
-}
-
-export default function AboutPage() {
+export const AboutBlock: React.FC = () => {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative pt-32 pb-16">
         <div
@@ -166,6 +156,7 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* CTA Section */}
       <div className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-[32px] md:text-[40px] text-black leading-[1.2] tracking-tight font-heading mb-6">
@@ -183,6 +174,6 @@ export default function AboutPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

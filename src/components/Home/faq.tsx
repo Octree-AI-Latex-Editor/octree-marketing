@@ -7,7 +7,7 @@ import {
 
 export function FAQ() {
   return (
-    <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+    <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-lg">Is my data private?</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4">

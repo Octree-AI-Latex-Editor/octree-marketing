@@ -12,7 +12,7 @@ export function FAQ() {
         <AccordionTrigger className="text-lg">Is my data private?</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4">
           <p>
-            Absolutely. Octree uses only <strong>Claude Haiku 4.5</strong> for AI generation. Your
+            Absolutely. Octree uses only <strong>Claude Sonnet 4.5</strong> for AI generation. Your
             files and inputs are <strong>never stored, shared, or used for model training</strong>.
             All compilation happens securely on our own servers.
           </p>

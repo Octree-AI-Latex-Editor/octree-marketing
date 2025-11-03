@@ -22,7 +22,7 @@ export function FAQ() {
         <AccordionTrigger className="text-lg">Is Octree free to use?</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4">
           <p>
-            Yes — you get <strong>15 free AI credits every day</strong>, no card required. You can
+            Yes — you get <strong>5 free AI credits every day</strong>, no card required. You can
             upgrade later for more usage and faster compile times.
           </p>
         </AccordionContent>

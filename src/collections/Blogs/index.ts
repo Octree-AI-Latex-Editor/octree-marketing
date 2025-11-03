@@ -161,27 +161,16 @@ export const Blogs: CollectionConfig<'blogs'> = {
                   },
                 ],
                 beforeChange: [
-                  async ({ value, originalDoc, siblingData, siblingFields, data }) => {
+                  async ({ value, originalDoc, siblingData, siblingFields }) => {
                     // Only convert markdown to content if:
                     // 1. Markdown field has content
                     // 2. The markdown value has actually changed from what was previously stored
-                    // 3. The content field hasn't been directly modified
                     if (!value) {
                       return undefined
                     }
 
-                    // Check if content field has been directly modified
-                    // If so, don't interfere with it via the markdown field
-                    const currentContent = siblingData['content']
-                    const previousContent = originalDoc?.content
-
-                    // If content has been modified directly (different from original),
-                    // skip markdown processing to avoid overwriting user's rich text edits
-                    if (currentContent && previousContent && currentContent !== previousContent) {
-                      return undefined
-                    }
-
                     // Get the previous markdown representation to check if it changed
+                    const previousContent = originalDoc?.content
                     if (previousContent) {
                       try {
                         const contentField = siblingFields.find(
@@ -203,13 +192,10 @@ export const Blogs: CollectionConfig<'blogs'> = {
                         }
                       } catch (error) {
                         console.error('Error checking previous markdown:', error)
-                        // On error, don't overwrite content to be safe
-                        return undefined
                       }
                     }
 
-                    // If we got here, markdown has changed and content hasn't been directly edited
-                    // So it's safe to convert markdown to content
+                    // If we got here, markdown has changed - convert it
                     try {
                       const contentField = siblingFields.find(
                         (field) => 'name' in field && field.name === 'content',
@@ -360,7 +346,7 @@ export const Blogs: CollectionConfig<'blogs'> = {
   versions: {
     drafts: {
       autosave: {
-        interval: 2000, // Increased from 100ms to 2 seconds to prevent race conditions
+        interval: 1000, // We set this interval for optimal live preview
       },
       schedulePublish: true,
     },

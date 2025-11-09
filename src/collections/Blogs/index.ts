@@ -19,6 +19,7 @@ import {
   convertMarkdownToLexical,
   convertLexicalToMarkdown,
   editorConfigFactory,
+  InlineCodeFeature,
 } from '@payloadcms/richtext-lexical'
 
 import { authenticated } from '../../access/authenticated'
@@ -103,7 +104,7 @@ export const Blogs: CollectionConfig<'blogs'> = {
                 features: ({ rootFeatures }) => {
                   return [
                     ...rootFeatures,
-                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4', 'h5'] }),
                     BoldFeature(),
                     ItalicFeature(),
                     UnderlineFeature(),
@@ -117,6 +118,7 @@ export const Blogs: CollectionConfig<'blogs'> = {
                     OrderedListFeature(),
                     ChecklistFeature(),
                     LinkFeature(),
+                    InlineCodeFeature(),
                   ]
                 },
               }),
@@ -344,7 +346,7 @@ export const Blogs: CollectionConfig<'blogs'> = {
   versions: {
     drafts: {
       autosave: {
-        interval: 100, // We set this interval for optimal live preview
+        interval: 1000, // We set this interval for optimal live preview
       },
       schedulePublish: true,
     },

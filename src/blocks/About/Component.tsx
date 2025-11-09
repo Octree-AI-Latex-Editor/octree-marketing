@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { generateMetadata } from '../[slug]/page'
+import React from 'react'
 
-export default function AboutPage() {
+export const AboutBlock: React.FC = () => {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16">
+      <div className="relative -mt-32 pt-32 pb-16">
         <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-[400px] blur-[20px] rounded-full overflow-hidden z-[1] pointer-events-none"
           style={{
@@ -156,6 +156,7 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* CTA Section */}
       <div className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-[32px] md:text-[40px] text-black leading-[1.2] tracking-tight font-heading mb-6">
@@ -173,8 +174,6 @@ export default function AboutPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
-
-export { generateMetadata }

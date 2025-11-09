@@ -7,12 +7,12 @@ import {
 
 export function FAQ() {
   return (
-    <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+    <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-lg">Is my data private?</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4">
           <p>
-            Absolutely. Octree uses only <strong>Claude Haiku 4.5</strong> for AI generation. Your
+            Absolutely. Octree uses only <strong>Claude Sonnet 4.5</strong> for AI generation. Your
             files and inputs are <strong>never stored, shared, or used for model training</strong>.
             All compilation happens securely on our own servers.
           </p>
@@ -22,7 +22,7 @@ export function FAQ() {
         <AccordionTrigger className="text-lg">Is Octree free to use?</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4">
           <p>
-            Yes — you get <strong>15 free AI credits every day</strong>, no card required. You can
+            Yes — you get <strong>5 free AI credits every day</strong>, no card required. You can
             upgrade later for more usage and faster compile times.
           </p>
         </AccordionContent>

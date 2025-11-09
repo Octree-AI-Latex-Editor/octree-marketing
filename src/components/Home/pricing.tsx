@@ -6,7 +6,7 @@ import { PrimaryButton } from './primary-button'
 
 export function Pricing() {
   const starterFeatures = [
-    '15 free AI edits per day',
+    '5 free AI edits per day',
     'Unlimited compile',
     'PDF export',
     'User-friendly experience',

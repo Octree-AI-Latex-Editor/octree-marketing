@@ -666,7 +666,8 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
       },
     ],
     meta: {
-      description: 'An open-source website built with Payload and Next.js.',
+      description:
+        'The open-source LaTeX editor that makes academic writing feel natural and effortless',
       image: heroImage.id,
       title: 'Octree',
     },

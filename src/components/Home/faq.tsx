@@ -53,12 +53,12 @@ export function FAQ() {
           <p>
             Yes. Octree is open source — explore the codebase and contribute here:{' '}
             <a
-              href="https://github.com/Octree-AI-Latex-Editor/octree"
+              href="https://github.com/octree-labs/octree"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
-              https://github.com/Octree-AI-Latex-Editor/octree
+              https://github.com/octree-labs/octree
             </a>
           </p>
         </AccordionContent>

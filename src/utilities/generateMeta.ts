@@ -26,7 +26,12 @@ export const generateMeta = async (args: {
 
   const ogImage = getImageURL(doc?.meta?.image)
 
-  const title = doc?.meta?.title ? doc?.meta?.title + ' | Octree' : 'Octree'
+  const isHome = doc?.slug === 'home'
+  const title = doc?.meta?.title
+    ? isHome
+      ? doc?.meta?.title
+      : doc?.meta?.title + ' | Octree - AI LaTeX Editor'
+    : 'Octree - AI LaTeX Editor'
 
   return {
     description: doc?.meta?.description,

@@ -3,6 +3,8 @@ import { FileText, Users } from 'lucide-react'
 import { cn } from '@/utilities/ui'
 import Arrow from '@/components/icons/arrow'
 import Sparkles from '@/components/icons/sparkles'
+import katex from 'katex'
+import 'katex/dist/katex.min.css'
 
 function FeatureVisual({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -22,7 +24,13 @@ function FeatureVisual({ children, className }: { children: React.ReactNode; cla
   )
 }
 
-function FeatureDescription({ title, description }: { title: string; description: string }) {
+function FeatureDescription({
+  title,
+  description,
+}: {
+  title: string
+  description: string | React.ReactNode
+}) {
   return (
     <div className="flex flex-col text-left gap-2 md:gap-3 tracking-tight">
       <h3 className="text-xl md:text-2xl font-medium">{title}</h3>
@@ -36,10 +44,17 @@ function FeatureCard({ children }: { children: React.ReactNode }) {
 }
 
 export function Features() {
+  const latexHtml = katex.renderToString('\\LaTeX', {
+    throwOnError: false,
+    displayMode: false,
+  })
+
   return (
     <>
       <div className="max-w-[700px] py-8 md:py-16 text-[28px] md:text-[48px] lg:text-[56px] tracking-tight mx-auto leading-[1.125] px-4">
-        Stop copying LaTeX code - write and compile with AI
+        Stop copying{' '}
+        <span className="text-[0.85em]" dangerouslySetInnerHTML={{ __html: latexHtml }} /> code -
+        write and compile with AI
         <div className="bg-primary rounded-[14px] p-2 ml-2 w-10 h-10 md:w-12 md:h-12 inline-flex items-center justify-center">
           <Arrow className="text-white w-5 h-5 md:w-7 md:h-7" />
         </div>

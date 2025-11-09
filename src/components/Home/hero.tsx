@@ -1,4 +1,5 @@
 import { PrimaryButton } from './primary-button'
+import { CreditCard } from 'lucide-react'
 
 export function Hero() {
   return (
@@ -35,8 +36,14 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="mb-16">
-          <PrimaryButton>Try Now</PrimaryButton>
+        <div className="mb-16 flex flex-col items-center gap-3">
+          <PrimaryButton className="text-base md:text-lg px-4 py-2 md:px-5 md:py-2.5 h-auto">
+            Try now - it&apos;s free!
+          </PrimaryButton>
+          <div className="flex items-center gap-1.5 text-[#636363] text-xs md:text-sm">
+            <CreditCard className="w-3.5 h-3.5 md:w-4 md:h-4" />
+            <span>No credit card required</span>
+          </div>
         </div>
 
         <div className="max-w-6xl mx-auto px-4">

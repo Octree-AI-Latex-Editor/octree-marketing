@@ -6,7 +6,9 @@ export default function LogoCloud() {
       <div className="group relative m-auto max-w-7xl px-6">
         <div className="flex flex-col items-center">
           <div className="mb-8">
-            <p className="text-center text-lg md:text-xl font-medium">Powering research teams at</p>
+            <p className="text-center text-lg md:text-xl font-medium">
+              Powering research teams and engineers at
+            </p>
           </div>
           <div className="relative py-6 w-full">
             <InfiniteSlider speedOnHover={20} speed={40} gap={112}>

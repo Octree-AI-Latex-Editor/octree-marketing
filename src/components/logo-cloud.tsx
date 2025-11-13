@@ -14,7 +14,7 @@ export default function LogoCloud() {
             <InfiniteSlider speedOnHover={20} speed={40} gap={80}>
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/guelph.png"
                   alt="University of Guelph"
                   height="48"
@@ -23,7 +23,7 @@ export default function LogoCloud() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-14 w-fit dark:invert"
+                  className="h-14 w-auto dark:invert"
                   src="/logos/rwth.svg"
                   alt="RWTH Aachen University"
                   height="56"
@@ -32,7 +32,7 @@ export default function LogoCloud() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/imu.png"
                   alt="Inner Mongolia University Logo"
                   height="48"
@@ -41,7 +41,7 @@ export default function LogoCloud() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/south-dakota.svg"
                   alt="South Dakota State University Logo"
                   height="48"
@@ -51,7 +51,7 @@ export default function LogoCloud() {
 
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/stevens.png"
                   alt="Stevens Institute of Technology Logo"
                   height="48"
@@ -61,7 +61,7 @@ export default function LogoCloud() {
 
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/hnu.png"
                   alt="Hainan Normal University Logo"
                   height="48"
@@ -70,7 +70,7 @@ export default function LogoCloud() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/muni.png"
                   alt="Masaryk University Logo"
                   height="48"
@@ -79,7 +79,7 @@ export default function LogoCloud() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-12 w-fit dark:invert"
+                  className="h-12 w-auto dark:invert"
                   src="/logos/uaq.svg"
                   alt="Universidad Autónoma de Querétaro Logo"
                   height="48"

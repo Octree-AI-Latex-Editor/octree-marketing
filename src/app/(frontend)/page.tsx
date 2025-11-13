@@ -1,7 +1,6 @@
 import { generateMetadata } from './[slug]/page'
 import { Hero } from '@/components/Home/hero'
 import LogoCloud from '@/components/logo-cloud'
-import { FeatureHeader } from '@/components/Home/feature-header'
 import { Features } from '@/components/Home/features'
 import { Pricing } from '@/components/Home/pricing'
 import { HowItWorks } from '@/components/Home/how-it-works'
@@ -12,7 +11,6 @@ export default function Page() {
   return (
     <main>
       <Hero />
-      <FeatureHeader />
       <LogoCloud />
       <Features />
       <Pricing />

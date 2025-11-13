@@ -14,7 +14,7 @@ export function Hero() {
 
       <div className="pt-16 pb-8 text-center relative z-10">
         <div className="mb-6">
-          <p className="text-[#636363] font-medium tracking-[-0.02] text-sm md:text-base">
+          <p className="text-neutral-600 font-medium tracking-[-0.02] text-sm md:text-base group mx-auto flex w-fit items-center gap-4 rounded-full border px-4 py-1 shadow-sm">
             Now in Beta
           </p>
         </div>

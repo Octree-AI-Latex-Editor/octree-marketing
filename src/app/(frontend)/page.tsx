@@ -6,11 +6,13 @@ import { Pricing } from '@/components/Home/pricing'
 import { HowItWorks } from '@/components/Home/how-it-works'
 import { FAQSection } from '@/components/Home/faq-section'
 import { CallToAction } from '@/components/Home/call-to-action'
+import { FeatureHeader } from '@/components/Home/feature-header'
 
 export default function Page() {
   return (
     <main>
       <Hero />
+      <FeatureHeader />
       <LogoCloud />
       <Features />
       <Pricing />

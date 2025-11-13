@@ -7,12 +7,12 @@ export default function LogoCloud() {
         <div className="flex flex-col items-center">
           <div className="mb-8">
             <p className="text-center text-lg md:text-xl font-medium">
-              Powering research teams and engineers at
+              Powering research teams and academics at
             </p>
           </div>
           <div className="relative py-6 w-full">
-            <InfiniteSlider speedOnHover={20} speed={40} gap={112}>
-              <div className="flex">
+            <InfiniteSlider speedOnHover={20} speed={40} gap={80}>
+              <div className="flex items-center justify-center">
                 <img
                   className="mx-auto h-12 w-fit dark:invert"
                   src="/logos/guelph.png"
@@ -21,7 +21,7 @@ export default function LogoCloud() {
                   width="auto"
                 />
               </div>
-              <div className="flex">
+              <div className="flex items-center justify-center">
                 <img
                   className="mx-auto h-14 w-fit dark:invert"
                   src="/logos/rwth.svg"
@@ -30,13 +30,12 @@ export default function LogoCloud() {
                   width="auto"
                 />
               </div>
-
               <div className="flex items-center justify-center">
                 <img
-                  className="mx-auto h-10 w-fit dark:invert"
-                  src="/logos/google.svg"
-                  alt="Google Logo"
-                  height="40"
+                  className="mx-auto h-12 w-fit dark:invert"
+                  src="/logos/imu.png"
+                  alt="Inner Mongolia University Logo"
+                  height="48"
                   width="auto"
                 />
               </div>
@@ -55,6 +54,34 @@ export default function LogoCloud() {
                   className="mx-auto h-12 w-fit dark:invert"
                   src="/logos/stevens.png"
                   alt="Stevens Institute of Technology Logo"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+
+              <div className="flex items-center justify-center">
+                <img
+                  className="mx-auto h-12 w-fit dark:invert"
+                  src="/logos/hnu.png"
+                  alt="Hainan Normal University Logo"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="mx-auto h-12 w-fit dark:invert"
+                  src="/logos/muni.png"
+                  alt="Masaryk University Logo"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="mx-auto h-12 w-fit dark:invert"
+                  src="/logos/uaq.svg"
+                  alt="Universidad Autónoma de Querétaro Logo"
                   height="48"
                   width="auto"
                 />

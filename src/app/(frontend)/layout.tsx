@@ -17,6 +17,8 @@ import { draftMode } from 'next/headers'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+const siteUrl = getServerSideURL()
+
 const satoshi = localFont({
   src: [
     {
@@ -43,6 +45,14 @@ const dmMono = DM_Mono({
   variable: '--font-dm-mono',
 })
 
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Octree',
+  alternateName: ['Use Octree', 'Octree – AI LaTeX Editor'],
+  url: siteUrl,
+}
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
@@ -56,6 +66,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+          suppressHydrationWarning
+          type="application/ld+json"
+        />
       </head>
       <body>
         <Providers>
@@ -76,7 +91,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getServerSideURL()),
+  metadataBase: new URL(siteUrl),
+  applicationName: 'Octree',
+  title: {
+    default: 'Octree – AI LaTeX Editor',
+    template: '%s | Octree',
+  },
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',

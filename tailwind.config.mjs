@@ -146,7 +146,13 @@ const config = {
           ],
         },
       }),
+      maskImage: {
+        'gradient-to-r': 'linear-gradient(to right, transparent, black)',
+      },
     },
+  },
+  corePlugins: {
+    maskImage: false,
   },
 }
 

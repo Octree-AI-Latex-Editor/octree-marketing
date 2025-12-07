@@ -101,3 +101,27 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+@layer utilities {
+  .mask-l-from-35\% {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 55%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 55%, black 100%);
+  }
+  
+  .mask-l-from-50\% {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 50%, black 70%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, transparent 50%, black 70%, black 100%);
+  }
+  
+  @media (min-width: 768px) {
+    .md\:mask-l-from-35\% {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 55%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 55%, black 100%);
+    }
+    
+    .md\:mask-l-from-50\% {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 50%, black 70%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, transparent 50%, black 70%, black 100%);
+    }
+  }
+}

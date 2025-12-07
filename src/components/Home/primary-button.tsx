@@ -16,7 +16,7 @@ export function PrimaryButton({
     <Link href={href}>
       <Button
         className={cn(
-          'group w-fit rounded-full bg-gradient-to-b from-[#6B9FFF] to-primary text-white font-medium',
+          'group w-fit rounded-xl bg-gradient-to-b from-[#6B9FFF] to-primary text-white font-medium',
           className,
         )}
       >

@@ -1,5 +1,6 @@
 import { ChevronRight, Ellipsis } from 'lucide-react'
 import { OctreeLogo } from '@/components/icons/octree'
+import Link from 'next/link'
 
 function SectionHeader({ title, description }: { title: string; description: string }) {
   return (
@@ -68,9 +69,14 @@ export function HowItWorks() {
           description="Create your account and import existing documents in minutes."
         />
         <StepDemo>
-          <div className="rounded-full px-4 py-2 md:px-5 md:py-2.5 shadow-sm flex items-center justify-center bg-white w-fit cursor-pointer text-sm md:text-base">
+          <Link
+            href="https://app.useoctree.com/auth/sign-up"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl px-4 py-2 md:px-5 md:py-2.5 shadow-sm flex items-center justify-center bg-white w-fit cursor-pointer text-sm md:text-base hover:shadow-md transition-shadow"
+          >
             Create Account
-          </div>
+          </Link>
         </StepDemo>
       </Step>
 

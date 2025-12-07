@@ -6,7 +6,7 @@ import type { Header as HeaderType } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
-import { SearchIcon, MenuIcon } from 'lucide-react'
+import { MenuIcon } from 'lucide-react'
 import { GitHubStars } from '@/components/GitHubStars'
 import { RedditIcon } from '@/components/icons/reddit'
 import { DiscordIcon } from '@/components/icons/discord'
@@ -18,7 +18,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   return (
     <nav className="flex gap-3 items-center">
-      <div className="hidden lg:flex gap-3 items-center">
+      <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-4 items-center">
         {navItems.map(({ link }, i) => {
           return <CMSLink key={i} {...link} appearance="link" />
         })}
@@ -46,9 +46,15 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         </Link>
       </div>
 
-      <Link href="/search">
-        <span className="sr-only">Search</span>
-        <SearchIcon className="w-5" />
+      <Link
+        href="https://app.useoctree.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden lg:block"
+      >
+        <Button variant="default" size="sm" className="rounded-[8px] h-8">
+          Login
+        </Button>
       </Link>
 
       <Sheet>
@@ -63,6 +69,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             {navItems.map(({ link }, i) => {
               return <CMSLink key={i} {...link} appearance="link" className="text-lg" />
             })}
+            <Link href="https://app.useoctree.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="default" className="w-full">
+                Login
+              </Button>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>

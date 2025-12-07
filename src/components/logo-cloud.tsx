@@ -1,6 +1,6 @@
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 
-export default function LogoCloud() {
+export function LogoCloud() {
   return (
     <section className="bg-background overflow-hidden py-16">
       <div className="group relative m-auto max-w-7xl px-6">

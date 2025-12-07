@@ -93,8 +93,8 @@ export async function Footer() {
           {/* Blogs */}
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white">Blogs</h3>
-            <nav className="flex flex-col gap-2 max-h-64 overflow-y-auto">
-              {blogs.docs.map((blog) => (
+            <nav className="flex flex-col gap-2">
+              {blogs.docs.slice(0, 10).map((blog) => (
                 <Link
                   key={blog.id}
                   href={`/blog/${blog.slug}`}
@@ -107,6 +107,14 @@ export async function Footer() {
                 <p className="text-gray-500 dark:text-gray-400 text-sm italic">
                   No blogs published yet
                 </p>
+              )}
+              {blogs.docs.length > 10 && (
+                <Link
+                  href="/blog"
+                  className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+                >
+                  Show more →
+                </Link>
               )}
             </nav>
           </div>

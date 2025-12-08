@@ -33,6 +33,15 @@ export function LogoCloud() {
               <div className="flex items-center justify-center">
                 <img
                   className="h-12 w-auto dark:invert"
+                  src="/logos/johns-hopkins.png"
+                  alt="Johns Hopkins University"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="h-12 w-auto dark:invert"
                   src="/logos/imu.png"
                   alt="Inner Mongolia University Logo"
                   height="48"

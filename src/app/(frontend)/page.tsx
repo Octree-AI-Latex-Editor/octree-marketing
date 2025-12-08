@@ -18,7 +18,7 @@ export default function Page() {
       <Features />
       <Pricing />
       <HowItWorks />
-      <UseCases />
+      {/* <UseCases /> */}
       <FAQSection />
       <CallToAction />
     </main>

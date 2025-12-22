@@ -74,7 +74,7 @@ export function HeroSection() {
                 as="p"
                 className="max-w-3xl mx-auto text-lg md:text-xl font-medium text-[#636363] tracking-[-0.03]"
               >
-                Go from idea to publication-ready documents in minutes. Generate TikZ diagrams,
+                Go from idea to publication-ready LaTeX documents in minutes. Generate TikZ diagrams,
                 structure your sections, and refine with AI — no syntax, no setup.
               </TextEffect>
             </div>

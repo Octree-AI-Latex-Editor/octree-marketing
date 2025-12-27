@@ -1,7 +1,18 @@
-const SITE_URL =
+const normalizeSiteUrl = (rawUrl) => {
+  if (!rawUrl) return 'https://www.useoctree.com'
+
+  const withScheme = rawUrl.startsWith('http://') || rawUrl.startsWith('https://') ? rawUrl : `https://${rawUrl}`
+
+  // Strip trailing slash for consistent concatenation
+  return withScheme.replace(/\/$/, '')
+}
+
+const SITE_URL = normalizeSiteUrl(
   process.env.NEXT_PUBLIC_SERVER_URL ||
-  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-  'https://example.com'
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+    process.env.VERCEL_URL ||
+    'https://www.useoctree.com',
+)
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {

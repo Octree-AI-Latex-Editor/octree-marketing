@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { Check, Users } from 'lucide-react'
 import { cn } from '@/utilities/ui'
 import Compass from '@/components/icons/compass'
@@ -5,6 +8,8 @@ import Sparkles from '@/components/icons/sparkles'
 import { PrimaryButton } from './primary-button'
 
 export function Pricing() {
+  const [isAnnual, setIsAnnual] = useState(true)
+
   const starterFeatures = [
     '5 free AI edits per day',
     'Unlimited compile',
@@ -27,11 +32,44 @@ export function Pricing() {
   ]
 
   return (
-    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-4">
-      <SectionHeader
-        title="Pricing"
-        description="Simple, transparent pricing for all your editing needs"
-      />
+    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-8 md:gap-12 px-4">
+      <div className="flex flex-col gap-6 md:gap-8">
+        <SectionHeader
+          title="Pricing"
+          description="Simple, transparent pricing for all your editing needs"
+        />
+
+        {/* Monthly/Annual Toggle */}
+        <div className="flex justify-center">
+          <div className="inline-flex items-center bg-neutral-100 rounded-full p-1">
+            <button
+              onClick={() => setIsAnnual(false)}
+              className={cn(
+                'px-5 py-2 rounded-full text-sm font-medium transition-all',
+                !isAnnual
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-neutral-500 hover:text-neutral-700',
+              )}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setIsAnnual(true)}
+              className={cn(
+                'px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2',
+                isAnnual
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-neutral-500 hover:text-neutral-700',
+              )}
+            >
+              Annual
+              <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
+                Save 30%
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <PricingCard
@@ -49,12 +87,21 @@ export function Pricing() {
           description="Perfect for research teams and power users"
           price={
             <>
-              $10 <span className="text-base md:text-lg font-normal">/Month</span>
+              ${isAnnual ? '7' : '10'}{' '}
+              <span className="text-base md:text-lg font-normal">/Month</span>
+              {isAnnual && (
+                <span className="block text-sm font-normal mt-1 opacity-80">
+                  Billed annually
+                </span>
+              )}
             </>
           }
           features={proFeatures}
           buttonText="Get Started"
-          buttonHref="https://buy.stripe.com/6oUdR9fyd8Sd6Cifd46oo00"
+          buttonHref={isAnnual 
+            ? "https://buy.stripe.com/4gM00j3Pv5G13q66Gy6oo09" 
+            : "https://buy.stripe.com/6oUdR9fyd8Sd6Cifd46oo00"
+          }
           isDark
         />
 

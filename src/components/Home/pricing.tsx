@@ -56,14 +56,14 @@ export function Pricing() {
             <button
               onClick={() => setIsAnnual(true)}
               className={cn(
-                'px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2',
+                'px-5 py-2 rounded-full text-sm font-medium transition-all inline-flex items-center gap-2 whitespace-nowrap',
                 isAnnual
                   ? 'bg-white text-black shadow-sm'
                   : 'text-neutral-500 hover:text-neutral-700',
               )}
             >
               Annual
-              <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
+              <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium whitespace-nowrap">
                 Save 30%
               </span>
             </button>

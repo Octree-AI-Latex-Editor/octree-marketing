@@ -230,7 +230,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Learn TikZ – Create Diagrams in LaTeX Tutorial 2025 | Octree',
     description: 'Master TikZ for creating diagrams, flowcharts, graphs, and illustrations in LaTeX. Free tutorial covering shapes, nodes, arrows, styling, trees, and advanced techniques.',
-    keywords: 'learn tikz, tikz tutorial, tikz examples, tikz diagrams, tikz flowchart, tikz graphs, tikz arrows, tikz nodes, latex diagrams, latex graphics, tikz for beginners, tikz shapes, tikz trees, tikz drawing',
+    keywords: 'tikz timeline, tikz block diagram, tikz neural network, tikz flowchart examples, tikz mindmap, tikz circuit diagrams, learn tikz, tikz tutorial, tikz examples, tikz diagrams, tikz graphs, tikz arrows, tikz nodes, latex diagrams, latex graphics',
     openGraph: {
       title: 'Learn TikZ – Create Diagrams in LaTeX Tutorial 2025',
       description: 'Master TikZ for creating stunning diagrams, flowcharts, and illustrations in LaTeX. Free comprehensive tutorial.',

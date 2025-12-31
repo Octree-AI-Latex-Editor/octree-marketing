@@ -84,7 +84,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Learn LaTeX, TikZ & PGFPlots – Free Tutorials | Octree',
     description: 'Master LaTeX and its powerful packages with comprehensive tutorials. Learn document typesetting, diagrams with TikZ, and data visualization with PGFPlots. Free beginner-friendly guides.',
-    keywords: 'learn latex, latex tutorial, tikz tutorial, pgfplots tutorial, latex for beginners, latex guide, tikz examples, pgfplots examples, latex online course, free latex tutorial',
+    keywords: 'latex online editor, latex resume template, latex cv template, latex math symbols, latex equations, latex matrix, latex fractions, latex table generator, how to write latex, overleaf tutorial, latex beamer presentation, tikz flowchart examples, pgfplots histogram, learn latex, latex tutorial',
     openGraph: {
       title: 'Learn LaTeX, TikZ & PGFPlots – Free Tutorials',
       description: 'Master LaTeX and its powerful packages with comprehensive tutorials. Free beginner-friendly guides for document typesetting, diagrams, and data visualization.',

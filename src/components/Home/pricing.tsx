@@ -86,21 +86,20 @@ export function Pricing() {
           name="Pro"
           description="Perfect for research teams and power users"
           price={
-            <>
-              ${isAnnual ? '7' : '10'}{' '}
-              <span className="text-base md:text-lg font-normal">/Month</span>
-              {isAnnual && (
-                <span className="block text-sm font-normal mt-1 opacity-80">
-                  Billed annually
-                </span>
-              )}
-            </>
+            <div className="flex items-baseline gap-2">
+              <div>
+                ${isAnnual ? '7' : '10'}{' '}
+                <span className="text-base md:text-lg font-normal">/ Month</span>
+              </div>
+              {isAnnual && <span className="text-sm font-normal opacity-80">Billed annually</span>}
+            </div>
           }
           features={proFeatures}
           buttonText="Get Started"
-          buttonHref={isAnnual 
-            ? "https://buy.stripe.com/4gM00j3Pv5G13q66Gy6oo09" 
-            : "https://buy.stripe.com/6oUdR9fyd8Sd6Cifd46oo00"
+          buttonHref={
+            isAnnual
+              ? 'https://buy.stripe.com/4gM00j3Pv5G13q66Gy6oo09'
+              : 'https://buy.stripe.com/6oUdR9fyd8Sd6Cifd46oo00'
           }
           isDark
         />

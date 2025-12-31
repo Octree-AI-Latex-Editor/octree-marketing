@@ -38,6 +38,30 @@ const getPagesSitemap = unstable_cache(
         loc: `${SITE_URL}/blog`,
         lastmod: dateFallback,
       },
+      {
+        loc: `${SITE_URL}/learn`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/latex`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/tikz`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/pgfplots`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/privacy`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/terms`,
+        lastmod: dateFallback,
+      },
     ]
 
     const sitemap = results.docs

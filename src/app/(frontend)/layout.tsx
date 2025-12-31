@@ -49,8 +49,28 @@ const webSiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Octree',
-  alternateName: ['Use Octree', 'Octree – AI LaTeX Editor'],
+  alternateName: ['Octree', 'Octree AI LaTeX Editor'],
   url: siteUrl,
+  publisher: {
+    '@type': 'Organization',
+    name: 'Octree',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/favicon.svg`,
+    },
+  },
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Octree',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.svg`,
+  sameAs: [
+    'https://twitter.com/useoctree',
+    'https://github.com/octree-labs',
+  ],
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -68,6 +88,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <script
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+          suppressHydrationWarning
+          type="application/ld+json"
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           suppressHydrationWarning
           type="application/ld+json"
         />

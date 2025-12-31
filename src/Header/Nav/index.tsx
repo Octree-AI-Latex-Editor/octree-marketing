@@ -23,6 +23,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           return <CMSLink key={i} {...link} appearance="link" />
         })}
         <Button asChild variant="link" size="clear">
+          <Link href="/learn">
+            Learn
+          </Link>
+        </Button>
+        <Button asChild variant="link" size="clear">
           <Link href="https://tools.useoctree.com" target="_blank" rel="noopener noreferrer">
             Tools
           </Link>
@@ -74,6 +79,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             {navItems.map(({ link }, i) => {
               return <CMSLink key={i} {...link} appearance="link" className="text-lg" />
             })}
+            <Button asChild variant="link" size="clear" className="text-lg">
+              <Link href="/learn">
+                Learn
+              </Link>
+            </Button>
             <Button asChild variant="link" size="clear" className="text-lg">
               <Link href="https://tools.useoctree.com" target="_blank" rel="noopener noreferrer">
                 Tools

@@ -37,14 +37,6 @@ export function HeroSection() {
       <section>
         <div className="relative pt-16 pb-8 md:pt-20 z-10">
           <div className="text-center px-4">
-            <AnimatedGroup variants={transitionVariants}>
-              <div className="mb-6">
-                <p className="text-neutral-600 font-medium tracking-[-0.02] text-xs md:text-sm group mx-auto flex w-fit items-center gap-4 rounded-full border px-2.5 py-1 shadow-sm">
-                  Now in Beta
-                </p>
-              </div>
-            </AnimatedGroup>
-
             <div className="mb-6">
               <div className="max-w-5xl mx-auto">
                 <h1 className="text-[32px] md:text-[48px] lg:text-[56px] text-black leading-[1.05] tracking-tight font-heading">

@@ -99,7 +99,7 @@ export function Pricing() {
           buttonHref={
             isAnnual
               ? 'https://buy.stripe.com/4gM00j3Pv5G13q66Gy6oo09'
-              : 'https://buy.stripe.com/6oUdR9fyd8Sd6Cifd46oo00'
+              : 'https://app.useoctree.com/buy'
           }
           isDark
         />

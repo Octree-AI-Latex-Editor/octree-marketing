@@ -130,17 +130,18 @@ export function HeroSection() {
                     <div className="relative overflow-hidden rounded-lg">
                       <video
                         src="/video/Demo.mp4"
+                        poster="/images/overlay.png"
                         className="w-full h-auto block border-0 -mt-[2px] -mb-[2px]"
                         muted
                         playsInline
-                        preload="metadata"
+                        preload="auto"
                         style={{
                           objectFit: 'cover',
                           objectPosition: '50% 50%',
                         }}
                       />
-                      {/* Overlay - only visible on desktop hover */}
-                      <div className="absolute inset-0 bg-transparent md:group-hover:bg-black/10 md:group-active:bg-black/15 transition-colors duration-300" />
+                      {/* Overlay - only on hover */}
+                      <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-300" />
                       
                       {/* Play Button */}
                       <div className="absolute inset-0 flex items-center justify-center">

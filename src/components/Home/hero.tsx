@@ -1,10 +1,11 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { PrimaryButton } from '@/components/Home/primary-button'
-import { CreditCard } from 'lucide-react'
+import { CreditCard, Play } from 'lucide-react'
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/components/ui/dialog'
 import {
   VideoPlayer,
   VideoPlayerContent,
@@ -36,6 +37,8 @@ const transitionVariants = {
 }
 
 export function HeroSection() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div className="relative overflow-hidden">
       <div
@@ -120,30 +123,65 @@ export function HeroSection() {
             }}
           >
             <div className="max-w-6xl mx-auto px-4">
-              <div className="relative">
-                <VideoPlayer className="w-full overflow-hidden shadow-2xl">
-                  <VideoPlayerContent
-                    src="/video/Demo.mp4"
-                    muted
-                    autoPlay
-                    loop
-                    playsInline
-                    preload="auto"
-                    slot="media"
-                    className="w-full h-auto"
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: '50% 50%',
-                    }}
-                  />
-                  <VideoPlayerControlBar>
-                    <VideoPlayerPlayButton />
-                    <VideoPlayerTimeRange />
-                    <VideoPlayerTimeDisplay showDuration />
-                    <VideoPlayerMuteButton />
-                  </VideoPlayerControlBar>
-                </VideoPlayer>
-              </div>
+              <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogTrigger asChild>
+                  <button className="relative w-full group cursor-pointer focus:outline-none border-0 p-0 bg-transparent">
+                    {/* Video Thumbnail */}
+                    <div className="relative overflow-hidden rounded-lg">
+                      <video
+                        src="/video/Demo.mp4"
+                        className="w-full h-auto block border-0 -mt-[2px] -mb-[2px]"
+                        muted
+                        playsInline
+                        preload="metadata"
+                        style={{
+                          objectFit: 'cover',
+                          objectPosition: '50% 50%',
+                        }}
+                      />
+                      {/* Overlay - only on hover */}
+                      <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-300" />
+                      
+                      {/* Play Button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative">
+                          {/* Outer ring animation */}
+                          <div className="absolute inset-0 rounded-full bg-[#478eff]/30 animate-ping" style={{ animationDuration: '2s' }} />
+                          {/* Play button */}
+                          <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#478eff] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[#478eff]/40 group-hover:shadow-2xl">
+                            <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </DialogTrigger>
+
+                {/* Video Modal */}
+                <DialogContent className="max-w-5xl w-[95vw]">
+                  <DialogTitle className="sr-only">Product Demo Video</DialogTitle>
+                  <VideoPlayer className="w-full overflow-hidden rounded-xl shadow-2xl">
+                    <VideoPlayerContent
+                      src="/video/Demo.mp4"
+                      playsInline
+                      preload="auto"
+                      autoPlay
+                      slot="media"
+                      className="w-full h-auto"
+                      style={{
+                        objectFit: 'cover',
+                        objectPosition: '50% 50%',
+                      }}
+                    />
+                    <VideoPlayerControlBar>
+                      <VideoPlayerPlayButton />
+                      <VideoPlayerTimeRange />
+                      <VideoPlayerTimeDisplay showDuration />
+                      <VideoPlayerMuteButton />
+                    </VideoPlayerControlBar>
+                  </VideoPlayer>
+                </DialogContent>
+              </Dialog>
             </div>
           </AnimatedGroup>
         </div>

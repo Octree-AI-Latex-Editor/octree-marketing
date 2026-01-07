@@ -139,8 +139,8 @@ export function HeroSection() {
                           objectPosition: '50% 50%',
                         }}
                       />
-                      {/* Overlay - subtle on mobile, stronger on hover for desktop */}
-                      <div className="absolute inset-0 bg-black/5 md:bg-transparent group-hover:bg-black/10 group-active:bg-black/15 transition-colors duration-300" />
+                      {/* Overlay - only visible on desktop hover */}
+                      <div className="absolute inset-0 bg-transparent md:group-hover:bg-black/10 md:group-active:bg-black/15 transition-colors duration-300" />
                       
                       {/* Play Button */}
                       <div className="absolute inset-0 flex items-center justify-center">

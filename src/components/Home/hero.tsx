@@ -1,8 +1,19 @@
+'use client'
+
 import React from 'react'
 import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { PrimaryButton } from '@/components/Home/primary-button'
 import { CreditCard } from 'lucide-react'
+import {
+  VideoPlayer,
+  VideoPlayerContent,
+  VideoPlayerControlBar,
+  VideoPlayerMuteButton,
+  VideoPlayerPlayButton,
+  VideoPlayerTimeDisplay,
+  VideoPlayerTimeRange,
+} from '@/components/ui/shadcn-io/video-player'
 
 const transitionVariants = {
   item: {
@@ -110,20 +121,28 @@ export function HeroSection() {
           >
             <div className="max-w-6xl mx-auto px-4">
               <div className="relative">
-                <video
-                  className="w-full h-auto rounded-[12px] md:rounded-[20px] shadow-2xl"
-                  src="https://framerusercontent.com/assets/Qb8rAh2lhNSjgtoOoRPquNU90.mp4"
-                  poster="https://framerusercontent.com/images/0KpAYGPoed1PdUqI3M0JaK9QtHA.png?width=2998&height=1666"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: '50% 50%',
-                  }}
-                />
+                <VideoPlayer className="w-full overflow-hidden shadow-2xl">
+                  <VideoPlayerContent
+                    src="/video/Demo.mp4"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    preload="auto"
+                    slot="media"
+                    className="w-full h-auto"
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: '50% 50%',
+                    }}
+                  />
+                  <VideoPlayerControlBar>
+                    <VideoPlayerPlayButton />
+                    <VideoPlayerTimeRange />
+                    <VideoPlayerTimeDisplay showDuration />
+                    <VideoPlayerMuteButton />
+                  </VideoPlayerControlBar>
+                </VideoPlayer>
               </div>
             </div>
           </AnimatedGroup>

@@ -42,6 +42,33 @@ export function LogoCloud() {
               <div className="flex items-center justify-center">
                 <img
                   className="h-12 w-auto dark:invert"
+                  src="/logos/upenn.png"
+                  alt="University of Pennsylvania Logo"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="h-12 w-auto dark:invert"
+                  src="/logos/iitm.png"
+                  alt="IIT Madras Logo"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="h-12 w-auto dark:invert"
+                  src="/logos/nyu.png"
+                  alt="New York University Logo"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="h-12 w-auto dark:invert"
                   src="/logos/imu.png"
                   alt="Inner Mongolia University Logo"
                   height="48"
@@ -92,6 +119,15 @@ export function LogoCloud() {
                   src="/logos/uaq.svg"
                   alt="Universidad Autónoma de Querétaro Logo"
                   height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  className="h-12 w-auto dark:invert"
+                  src="/logos/umass.png"
+                  alt="UMass Logo"
+                  height="40"
                   width="auto"
                 />
               </div>

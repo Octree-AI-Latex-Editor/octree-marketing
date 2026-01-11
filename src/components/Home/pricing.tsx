@@ -10,15 +10,15 @@ import { PrimaryButton } from './primary-button'
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true)
 
-  const starterFeatures = [
-    '5 free AI edits per day',
+  const trialFeatures = [
+    '3 days free trial',
     'Unlimited compile',
     'PDF export',
     'User-friendly experience',
   ]
 
   const proFeatures = [
-    'Everything in Starter plan',
+    'Everything in Free Trial',
     'Unlimited edits',
     'Unlimited documents',
     'Priority support',
@@ -74,10 +74,10 @@ export function Pricing() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <PricingCard
           icon={<Compass className="w-4 h-4 md:w-5 md:h-5" />}
-          name="Starter"
+          name="Trial"
           description="Ideal for individuals just starting out"
           price="Free"
-          features={starterFeatures}
+          features={trialFeatures}
           buttonText="Get Started"
         />
 

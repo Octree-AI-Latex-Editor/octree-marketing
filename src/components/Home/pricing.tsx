@@ -10,15 +10,15 @@ import { PrimaryButton } from './primary-button'
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true)
 
-  const trialFeatures = [
-    '3 days free trial',
+const starterFeatures = [
+    'Full source code access',
+    'Self-host on your own server',
     'Unlimited compile',
-    'PDF export',
-    'User-friendly experience',
+    'Community support',
   ]
 
   const proFeatures = [
-    'Everything in Free Trial',
+    'Everything in Free plan',
     'Unlimited edits',
     'Unlimited documents',
     'Priority support',
@@ -64,7 +64,7 @@ export function Pricing() {
             >
               Annual
               <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
-                Save 30%
+                Save 17%
               </span>
             </button>
           </div>
@@ -74,11 +74,12 @@ export function Pricing() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <PricingCard
           icon={<Compass className="w-4 h-4 md:w-5 md:h-5" />}
-          name="Trial"
-          description="Ideal for individuals just starting out"
+          name="Free"
+          description="Host Octree on your own infrastructure"
           price="Free"
-          features={trialFeatures}
-          buttonText="Get Started"
+          features={starterFeatures}
+          buttonText="View on GitHub"
+          buttonHref="https://github.com/useoctree/octree"
         />
 
         <PricingCard
@@ -86,12 +87,12 @@ export function Pricing() {
           name="Pro"
           description="Perfect for research teams and power users"
           price={
-            <div className="flex items-baseline gap-2">
+            <div className="flex flex-col">
               <div>
-                ${isAnnual ? '7' : '10'}{' '}
+                ${isAnnual ? '16.67' : '19.99'}{' '}
                 <span className="text-base md:text-lg font-normal">/ Month</span>
               </div>
-              {isAnnual && <span className="text-sm font-normal opacity-80">Billed annually</span>}
+              {isAnnual && <span className="text-xs font-normal opacity-70">Billed annually</span>}
             </div>
           }
           features={proFeatures}

@@ -10,7 +10,7 @@ import { PrimaryButton } from './primary-button'
 export function Pricing() {
   const [isAnnual, setIsAnnual] = useState(true)
 
-  const starterFeatures = [
+const starterFeatures = [
     'Full source code access',
     'Self-host on your own server',
     'Unlimited compile',
@@ -18,7 +18,7 @@ export function Pricing() {
   ]
 
   const proFeatures = [
-    'Everything in Starter plan',
+    'Everything in Free plan',
     'Unlimited edits',
     'Unlimited documents',
     'Priority support',

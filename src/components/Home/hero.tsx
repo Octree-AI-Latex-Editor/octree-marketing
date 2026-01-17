@@ -80,8 +80,8 @@ export function HeroSection() {
                 as="p"
                 className="max-w-3xl mx-auto text-lg md:text-xl font-medium text-[#636363] tracking-[-0.03]"
               >
-                Go from idea to publication-ready LaTeX documents in minutes. Generate TikZ diagrams,
-                structure your sections, and refine with AI — no syntax, no setup.
+                Go from idea to publication-ready LaTeX documents in minutes. Generate TikZ
+                diagrams, structure your sections, and refine with AI — no syntax, no setup.
               </TextEffect>
             </div>
 
@@ -102,10 +102,6 @@ export function HeroSection() {
               <PrimaryButton className="text-base md:text-lg px-4 py-2 md:px-5 md:py-2.5 h-auto">
                 Try now - it&apos;s free!
               </PrimaryButton>
-              <div className="flex items-center gap-1.5 text-[#636363] text-xs md:text-sm">
-                <CreditCard className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                <span>No credit card required</span>
-              </div>
             </AnimatedGroup>
           </div>
 
@@ -142,12 +138,15 @@ export function HeroSection() {
                       />
                       {/* Overlay - only on hover */}
                       <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-300" />
-                      
+
                       {/* Play Button */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative">
                           {/* Outer ring animation */}
-                          <div className="absolute inset-0 rounded-full bg-[#478eff]/30 animate-ping" style={{ animationDuration: '2s' }} />
+                          <div
+                            className="absolute inset-0 rounded-full bg-[#478eff]/30 animate-ping"
+                            style={{ animationDuration: '2s' }}
+                          />
                           {/* Play button */}
                           <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#478eff] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[#478eff]/40 group-hover:shadow-2xl">
                             <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />

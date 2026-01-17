@@ -79,7 +79,7 @@ const starterFeatures = [
           price="Free"
           features={starterFeatures}
           buttonText="View on GitHub"
-          buttonHref="https://github.com/useoctree/octree"
+          buttonHref="https://github.com/octree-labs/octree"
         />
 
         <PricingCard

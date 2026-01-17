@@ -87,12 +87,12 @@ export function Pricing() {
           name="Pro"
           description="Perfect for research teams and power users"
           price={
-            <div className="flex items-baseline gap-2">
+            <div className="flex flex-col">
               <div>
                 ${isAnnual ? '16.67' : '19.99'}{' '}
                 <span className="text-base md:text-lg font-normal">/ Month</span>
               </div>
-              {isAnnual && <span className="text-sm font-normal opacity-80">Billed annually</span>}
+              {isAnnual && <span className="text-xs font-normal opacity-70">Billed annually</span>}
             </div>
           }
           features={proFeatures}

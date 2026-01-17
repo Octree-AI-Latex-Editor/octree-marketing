@@ -7,7 +7,7 @@ const defaultOpenGraph: Metadata['openGraph'] = {
     'The open-source LaTeX editor that makes academic writing feel natural and effortless',
   images: [
     {
-      url: `${getServerSideURL()}/website-template-OG.webp`,
+      url: `${getServerSideURL()}/images/octree-chat.png`,
     },
   ],
   siteName: 'Octree',

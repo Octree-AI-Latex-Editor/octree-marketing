@@ -1,13 +1,24 @@
 import type { Metadata } from 'next/types'
 import Link from 'next/link'
 import React from 'react'
+import {
+  generateBreadcrumbSchema,
+  getLearnBreadcrumbs,
+} from '@/utilities/generateBreadcrumbs'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
 
+const breadcrumbs = getLearnBreadcrumbs('Learn TikZ', 'tikz')
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
+
 export default function LearnTikzPage() {
   return (
     <div className="pt-24 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="container">
         <div className="mb-8 max-w-4xl mx-auto">
           <Link 

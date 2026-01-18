@@ -2,9 +2,16 @@ import type { Metadata } from 'next/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import {
+  generateBreadcrumbSchema,
+  getLearnBreadcrumbs,
+} from '@/utilities/generateBreadcrumbs'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
+
+const breadcrumbs = getLearnBreadcrumbs()
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
 
 const learnTopics = [
   {
@@ -33,6 +40,10 @@ const learnTopics = [
 export default function LearnPage() {
   return (
     <div className="pt-24 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-2xl mx-auto text-center">
           <h1>Learn</h1>

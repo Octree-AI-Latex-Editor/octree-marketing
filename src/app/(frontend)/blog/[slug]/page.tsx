@@ -12,6 +12,10 @@ import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import {
+  generateBreadcrumbSchema,
+  getBlogBreadcrumbs,
+} from '@/utilities/generateBreadcrumbs'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -47,8 +51,26 @@ export default async function Post({ params: paramsPromise }: Args) {
 
   if (!post) return <PayloadRedirects url={url} />
 
+  // Get the first category for breadcrumbs
+  const firstCategory =
+    post.categories && post.categories.length > 0 && typeof post.categories[0] === 'object'
+      ? post.categories[0]
+      : null
+
+  const breadcrumbs = getBlogBreadcrumbs(
+    post.title,
+    post.slug || '',
+    firstCategory?.title || undefined,
+    firstCategory?.slug || undefined
+  )
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
+
   return (
     <article className="pt-16 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageClient />
 
       {/* Allows redirects for valid pages too */}

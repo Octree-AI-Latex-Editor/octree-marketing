@@ -5,6 +5,7 @@ import {
   generateBreadcrumbSchema,
   getLearnBreadcrumbs,
 } from '@/utilities/generateBreadcrumbs'
+import { RelatedPosts } from '@/components/Learn/related-posts'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -12,7 +13,7 @@ export const revalidate = 3600
 const breadcrumbs = getLearnBreadcrumbs('Learn TikZ', 'tikz')
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
 
-export default function LearnTikzPage() {
+export default async function LearnTikzPage() {
   return (
     <div className="pt-24 pb-24">
       <script
@@ -216,6 +217,8 @@ export default function LearnTikzPage() {
             <li><Link href="/learn/pgfplots">Learn PGFPlots</Link> – Create data visualizations</li>
             <li><Link href="/learn/latex">Learn LaTeX Basics</Link> – Review fundamentals</li>
           </ul>
+
+          <RelatedPosts searchTerm="TikZ" title="Related TikZ Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
             <h3 className="text-lg font-semibold mb-2">Create TikZ diagrams with AI</h3>

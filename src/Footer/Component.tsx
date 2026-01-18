@@ -45,6 +45,13 @@ export async function Footer() {
 
   const navItems = footerData?.navItems || []
 
+  // Learn section items
+  const learnItems = [
+    { title: 'Learn LaTeX', href: '/learn/latex' },
+    { title: 'Learn TikZ', href: '/learn/tikz' },
+    { title: 'Learn PGFPlots', href: '/learn/pgfplots' },
+  ]
+
   // LaTeX Tools from Octree
   const toolsItems = [
     { title: 'Math to LaTeX', href: 'https://tools.useoctree.com/tools/math-to-latex' },
@@ -63,7 +70,7 @@ export async function Footer() {
   return (
     <footer className="mt-auto border-t border-gray-200 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo and Company Info */}
           <div className="space-y-4">
             <Link className="flex items-center" href="/">
@@ -87,6 +94,28 @@ export async function Footer() {
                   />
                 )
               })}
+            </nav>
+          </div>
+
+          {/* Learn */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Learn</h3>
+            <nav className="flex flex-col gap-2">
+              {learnItems.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item.href}
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+                >
+                  {item.title}
+                </Link>
+              ))}
+              <Link
+                href="/learn"
+                className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+              >
+                View all tutorials →
+              </Link>
             </nav>
           </div>
 

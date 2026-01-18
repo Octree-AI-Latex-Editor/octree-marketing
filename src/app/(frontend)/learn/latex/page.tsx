@@ -5,6 +5,7 @@ import {
   generateBreadcrumbSchema,
   getLearnBreadcrumbs,
 } from '@/utilities/generateBreadcrumbs'
+import { RelatedPosts } from '@/components/Learn/related-posts'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -12,7 +13,7 @@ export const revalidate = 3600
 const breadcrumbs = getLearnBreadcrumbs('Learn LaTeX', 'latex')
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
 
-export default function LearnLatexPage() {
+export default async function LearnLatexPage() {
   return (
     <div className="pt-24 pb-24">
       <script
@@ -210,6 +211,8 @@ As shown by Einstein~\\cite{einstein1905}...
             <li><Link href="/learn/tikz">Learn TikZ</Link> – Create diagrams and graphics</li>
             <li><Link href="/learn/pgfplots">Learn PGFPlots</Link> – Generate publication-quality plots</li>
           </ul>
+
+          <RelatedPosts searchTerm="LaTeX" title="Related LaTeX Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
             <h3 className="text-lg font-semibold mb-2">Ready to start writing?</h3>

@@ -5,6 +5,7 @@ import {
   generateBreadcrumbSchema,
   getLearnBreadcrumbs,
 } from '@/utilities/generateBreadcrumbs'
+import { RelatedPosts } from '@/components/Learn/related-posts'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -12,7 +13,7 @@ export const revalidate = 3600
 const breadcrumbs = getLearnBreadcrumbs('Learn PGFPlots', 'pgfplots')
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
 
-export default function LearnPgfplotsPage() {
+export default async function LearnPgfplotsPage() {
   return (
     <div className="pt-24 pb-24">
       <script
@@ -263,6 +264,8 @@ export default function LearnPgfplotsPage() {
             <li><Link href="/learn/tikz">Learn TikZ</Link> – Create custom diagrams</li>
             <li><Link href="/learn/latex">Learn LaTeX Basics</Link> – Review fundamentals</li>
           </ul>
+
+          <RelatedPosts searchTerm="PGFPlots" title="Related PGFPlots Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
             <h3 className="text-lg font-semibold mb-2">Generate plots with AI</h3>

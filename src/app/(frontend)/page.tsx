@@ -7,15 +7,17 @@ import { HowItWorks } from '@/components/Home/how-it-works'
 import { FAQSection } from '@/components/Home/faq-section'
 import { CallToAction } from '@/components/Home/call-to-action'
 import { FeatureHeader } from '@/components/Home/feature-header'
+import { ResourcesSection } from '@/components/Home/resources-section'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
-export default function Page() {
+export default async function Page() {
   return (
     <main>
       <HeroSection />
       <FeatureHeader />
       <LogoCloud />
       <Features />
+      <ResourcesSection />
       <Pricing />
       <HowItWorks />
       <FAQSection />

@@ -8,9 +8,9 @@ import Sparkles from '@/components/icons/sparkles'
 import { PrimaryButton } from './primary-button'
 
 export function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(true)
+  const [isMonthly, setIsMonthly] = useState(true)
 
-const starterFeatures = [
+  const starterFeatures = [
     'Full source code access',
     'Self-host on your own server',
     'Unlimited compile',
@@ -39,32 +39,32 @@ const starterFeatures = [
           description="Simple, transparent pricing for all your editing needs"
         />
 
-        {/* Monthly/Annual Toggle */}
+        {/* Weekly/Monthly Toggle */}
         <div className="flex justify-center">
           <div className="inline-flex items-center bg-neutral-100 rounded-full p-1">
             <button
-              onClick={() => setIsAnnual(false)}
+              onClick={() => setIsMonthly(false)}
               className={cn(
                 'px-5 py-2 rounded-full text-sm font-medium transition-all',
-                !isAnnual
+                !isMonthly
+                  ? 'bg-white text-black shadow-sm'
+                  : 'text-neutral-500 hover:text-neutral-700',
+              )}
+            >
+              Weekly
+            </button>
+            <button
+              onClick={() => setIsMonthly(true)}
+              className={cn(
+                'px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2',
+                isMonthly
                   ? 'bg-white text-black shadow-sm'
                   : 'text-neutral-500 hover:text-neutral-700',
               )}
             >
               Monthly
-            </button>
-            <button
-              onClick={() => setIsAnnual(true)}
-              className={cn(
-                'px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2',
-                isAnnual
-                  ? 'bg-white text-black shadow-sm'
-                  : 'text-neutral-500 hover:text-neutral-700',
-              )}
-            >
-              Annual
               <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
-                Save 17%
+                Save 50%
               </span>
             </button>
           </div>
@@ -87,17 +87,17 @@ const starterFeatures = [
           name="Pro"
           description="Perfect for research teams and power users"
           price={
-            <div className="flex flex-col">
+            <div className="flex items-baseline gap-2">
               <div>
-                ${isAnnual ? '16.67' : '19.99'}{' '}
-                <span className="text-base md:text-lg font-normal">/ Month</span>
+                ${isMonthly ? '2.49' : '4.99'}{' '}
+                <span className="text-base md:text-lg font-normal">/ Week</span>
               </div>
-              {isAnnual && <span className="text-xs font-normal opacity-70">Billed annually</span>}
+              {isMonthly && <span className="text-xs font-normal opacity-70">Billed monthly</span>}
             </div>
           }
           features={proFeatures}
           buttonText="Get Started"
-          buttonHref={`https://app.useoctree.com/buy?annual=${isAnnual}`}
+          buttonHref={`https://app.useoctree.com/buy?annual=${isMonthly}`}
           isDark
         />
 

@@ -1,13 +1,25 @@
 import type { Metadata } from 'next/types'
 import Link from 'next/link'
 import React from 'react'
+import {
+  generateBreadcrumbSchema,
+  getLearnBreadcrumbs,
+} from '@/utilities/generateBreadcrumbs'
+import { RelatedPosts } from '@/components/Learn/related-posts'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
 
-export default function LearnLatexPage() {
+const breadcrumbs = getLearnBreadcrumbs('Learn LaTeX', 'latex')
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
+
+export default async function LearnLatexPage() {
   return (
     <div className="pt-24 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="container">
         <div className="mb-8 max-w-4xl mx-auto">
           <Link 
@@ -199,6 +211,8 @@ As shown by Einstein~\\cite{einstein1905}...
             <li><Link href="/learn/tikz">Learn TikZ</Link> – Create diagrams and graphics</li>
             <li><Link href="/learn/pgfplots">Learn PGFPlots</Link> – Generate publication-quality plots</li>
           </ul>
+
+          <RelatedPosts searchTerm="LaTeX" title="Related LaTeX Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">
             <h3 className="text-lg font-semibold mb-2">Ready to start writing?</h3>

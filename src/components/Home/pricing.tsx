@@ -11,14 +11,14 @@ export function Pricing() {
   const [isMonthly, setIsMonthly] = useState(true)
 
   const starterFeatures = [
-    'Full source code access',
-    'Self-host on your own server',
-    'Unlimited compile',
+    '3-day free trial',
+    'Unlimited edits',
+    'Unlimited documents',
     'Community support',
   ]
 
   const proFeatures = [
-    'Everything in Free plan',
+    'AI document generation',
     'Unlimited edits',
     'Unlimited documents',
     'Priority support',
@@ -74,11 +74,11 @@ export function Pricing() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <PricingCard
           icon={<Compass className="w-4 h-4 md:w-5 md:h-5" />}
-          name="Free"
-          description="Host Octree on your own infrastructure"
+          name="Trial"
+          description="Try Octree risk-free for 3 days"
           price="Free"
           features={starterFeatures}
-          buttonText="View on GitHub"
+          buttonText="Get Started"
           buttonHref="https://github.com/octree-labs/octree"
         />
 

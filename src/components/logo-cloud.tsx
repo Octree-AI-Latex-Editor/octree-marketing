@@ -23,6 +23,15 @@ export function LogoCloud() {
               </div>
               <div className="flex items-center justify-center">
                 <img
+                  className="h-12 w-auto dark:invert"
+                  src="/logos/harvard.png"
+                  alt="Harvard University"
+                  height="48"
+                  width="auto"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <img
                   className="h-14 w-auto dark:invert"
                   src="/logos/rwth.svg"
                   alt="RWTH Aachen University"

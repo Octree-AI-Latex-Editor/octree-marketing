@@ -265,6 +265,13 @@ export default async function LearnPgfplotsPage() {
             <li><Link href="/learn/latex">Learn LaTeX Basics</Link> – Review fundamentals</li>
           </ul>
 
+          <h2>Free PGFPlots Tools</h2>
+          <ul>
+            <li><Link href="https://tools.useoctree.com/tools/pgfplots-generator" target="_blank" rel="noopener noreferrer">Pgfplots Generator</Link> – Generate plot code with AI from descriptions</li>
+            <li><Link href="https://tools.useoctree.com/tools/table-to-latex" target="_blank" rel="noopener noreferrer">Excel to LaTeX</Link> – Convert data tables for your plots</li>
+            <li><Link href="https://tools.useoctree.com/tools/latex-preview" target="_blank" rel="noopener noreferrer">LaTeX Preview</Link> – Test your plots with live preview</li>
+          </ul>
+
           <RelatedPosts searchTerm="PGFPlots" title="Related PGFPlots Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">

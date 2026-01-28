@@ -52,24 +52,43 @@ export async function Footer() {
     { title: 'Learn PGFPlots', href: '/learn/pgfplots' },
   ]
 
-  // LaTeX Tools from Octree
+  // LaTeX Tools from Octree - All 17 tools
   const toolsItems = [
     { title: 'Math to LaTeX', href: 'https://tools.useoctree.com/tools/math-to-latex' },
     { title: 'Excel to LaTeX', href: 'https://tools.useoctree.com/tools/table-to-latex' },
     { title: 'TikZ Generator', href: 'https://tools.useoctree.com/tools/tikz-generator' },
+    { title: 'Image to TikZ', href: 'https://tools.useoctree.com/tools/image-to-tikz' },
     { title: 'LaTeX Preview', href: 'https://tools.useoctree.com/tools/latex-preview' },
     { title: 'Markdown to LaTeX', href: 'https://tools.useoctree.com/tools/markdown-to-latex' },
+    { title: 'LaTeX to Markdown', href: 'https://tools.useoctree.com/tools/latex-to-markdown' },
     { title: 'Citation Generator', href: 'https://tools.useoctree.com/tools/citation-generator' },
     { title: 'MathML to LaTeX', href: 'https://tools.useoctree.com/tools/mathml-to-latex' },
     { title: 'AI LaTeX Generator', href: 'https://tools.useoctree.com/tools/ai-latex-generator' },
     { title: 'HTML to LaTeX', href: 'https://tools.useoctree.com/tools/html-to-latex' },
     { title: 'Mermaid to LaTeX', href: 'https://tools.useoctree.com/tools/mermaid-to-latex' },
     { title: 'Pgfplots Generator', href: 'https://tools.useoctree.com/tools/pgfplots-generator' },
+    { title: 'PDF to LaTeX', href: 'https://tools.useoctree.com/tools/pdf-to-latex' },
+    { title: 'Equation to LaTeX', href: 'https://tools.useoctree.com/tools/equation-to-latex' },
+    { title: 'ArXiv to LaTeX', href: 'https://tools.useoctree.com/tools/arxiv-to-latex' },
+    { title: 'LaTeX Word Counter', href: 'https://tools.useoctree.com/tools/latex-word-counter' },
+  ]
+
+  // LaTeX Templates
+  const templatesItems = [
+    { title: 'Research Paper', href: 'https://tools.useoctree.com/templates/research-paper' },
+    { title: 'PhD Thesis', href: 'https://tools.useoctree.com/templates/thesis' },
+    { title: 'Beamer Presentation', href: 'https://tools.useoctree.com/templates/beamer-presentation' },
+    { title: 'Academic CV', href: 'https://tools.useoctree.com/templates/academic-cv' },
+    { title: 'Cover Letter', href: 'https://tools.useoctree.com/templates/cover-letter' },
+    { title: 'Lab Report', href: 'https://tools.useoctree.com/templates/lab-report' },
+    { title: 'NeurIPS 2026', href: 'https://tools.useoctree.com/templates/neurips-2026' },
+    { title: 'ICML 2026', href: 'https://tools.useoctree.com/templates/icml-2026' },
   ]
 
   return (
     <footer className="mt-auto border-t border-gray-200 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <div className="container py-12">
+        {/* Row 1: Logo, Menu, Learn, Blogs, Tools */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo and Company Info */}
           <div className="space-y-4">
@@ -81,10 +100,38 @@ export async function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Menu */}
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white">Menu</h3>
             <nav className="flex flex-col gap-2">
+              <Link
+                href="/learn"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Learn
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                About
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/templates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Templates
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Symbols
+              </Link>
               {navItems.map(({ link }, i) => {
                 return (
                   <CMSLink
@@ -152,7 +199,7 @@ export async function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white">Tools</h3>
             <nav className="flex flex-col gap-2">
-              {toolsItems.map((tool, i) => (
+              {toolsItems.slice(0, 10).map((tool, i) => (
                 <Link
                   key={i}
                   href={tool.href}
@@ -163,6 +210,219 @@ export async function Footer() {
                   {tool.title}
                 </Link>
               ))}
+              <Link
+                href="https://tools.useoctree.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+              >
+                View all tools →
+              </Link>
+            </nav>
+          </div>
+        </div>
+
+        {/* Row 2: Templates and Symbols */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-10">
+          {/* Empty spacer for logo column */}
+          <div className="hidden lg:block"></div>
+
+          {/* Templates */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Templates</h3>
+            <nav className="flex flex-col gap-2">
+              {templatesItems.map((template, i) => (
+                <Link
+                  key={i}
+                  href={template.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+                >
+                  {template.title}
+                </Link>
+              ))}
+              <Link
+                href="https://tools.useoctree.com/templates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+              >
+                View all 71 templates →
+              </Link>
+            </nav>
+          </div>
+
+          {/* Symbols */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Symbols</h3>
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Greek Letters
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Math Operators
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Arrows
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Relations
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Set Theory
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Calculus
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Logic
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Linear Algebra
+              </Link>
+              <Link
+                href="https://tools.useoctree.com/symbols"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+              >
+                Browse all 37 categories →
+              </Link>
+            </nav>
+          </div>
+
+          {/* Open Source */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Open Source</h3>
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="https://github.com/octree-labs/octree"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Octree
+              </Link>
+              <Link
+                href="https://github.com/octree-labs/tools"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Tools & Templates
+              </Link>
+              <Link
+                href="https://github.com/octree-labs/octree-marketing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Marketing & Blogs
+              </Link>
+              <Link
+                href="https://github.com/octree-labs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+              >
+                View all repositories →
+              </Link>
+            </nav>
+          </div>
+
+          {/* Socials */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Socials</h3>
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="https://instagram.com/useoctree"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Instagram
+              </Link>
+              <Link
+                href="https://linkedin.com/company/useoctree"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="https://tiktok.com/@useoctree"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                TikTok
+              </Link>
+              <Link
+                href="https://x.com/useoctree"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                X
+              </Link>
+              <Link
+                href="https://www.reddit.com/r/Octree/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Reddit
+              </Link>
+              <Link
+                href="https://discord.gg/H6X7rMzBak"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Discord
+              </Link>
             </nav>
           </div>
         </div>

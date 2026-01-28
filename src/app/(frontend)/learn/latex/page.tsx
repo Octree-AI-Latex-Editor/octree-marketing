@@ -212,6 +212,25 @@ As shown by Einstein~\\cite{einstein1905}...
             <li><Link href="/learn/pgfplots">Learn PGFPlots</Link> – Generate publication-quality plots</li>
           </ul>
 
+          <h2>Free LaTeX Tools</h2>
+          <ul>
+            <li><Link href="https://tools.useoctree.com/tools/latex-preview" target="_blank" rel="noopener noreferrer">LaTeX Preview</Link> – Test your LaTeX code with live PDF preview</li>
+            <li><Link href="https://tools.useoctree.com/tools/math-to-latex" target="_blank" rel="noopener noreferrer">Math to LaTeX</Link> – Convert handwritten equations to LaTeX</li>
+            <li><Link href="https://tools.useoctree.com/tools/table-to-latex" target="_blank" rel="noopener noreferrer">Excel to LaTeX</Link> – Convert spreadsheets to LaTeX tables</li>
+            <li><Link href="https://tools.useoctree.com/tools/citation-generator" target="_blank" rel="noopener noreferrer">Citation Generator</Link> – Generate BibTeX citations from DOIs</li>
+            <li><Link href="https://tools.useoctree.com/tools/ai-latex-generator" target="_blank" rel="noopener noreferrer">AI LaTeX Generator</Link> – Generate LaTeX from text descriptions</li>
+            <li><Link href="https://tools.useoctree.com/symbols" target="_blank" rel="noopener noreferrer">LaTeX Symbols Reference</Link> – Browse math operators and Greek letters</li>
+          </ul>
+
+          <h2>LaTeX Templates</h2>
+          <p>Get started quickly with our professional templates:</p>
+          <ul>
+            <li><Link href="https://tools.useoctree.com/templates/research-paper" target="_blank" rel="noopener noreferrer">Research Paper</Link> – IEEE-style academic paper</li>
+            <li><Link href="https://tools.useoctree.com/templates/thesis" target="_blank" rel="noopener noreferrer">PhD Thesis</Link> – Comprehensive thesis template</li>
+            <li><Link href="https://tools.useoctree.com/templates/beamer-presentation" target="_blank" rel="noopener noreferrer">Beamer Presentation</Link> – Academic slides</li>
+            <li><Link href="https://tools.useoctree.com/templates" target="_blank" rel="noopener noreferrer">View all 71 templates →</Link></li>
+          </ul>
+
           <RelatedPosts searchTerm="LaTeX" title="Related LaTeX Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">

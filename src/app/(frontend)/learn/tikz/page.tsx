@@ -218,6 +218,13 @@ export default async function LearnTikzPage() {
             <li><Link href="/learn/latex">Learn LaTeX Basics</Link> – Review fundamentals</li>
           </ul>
 
+          <h2>Free TikZ Tools</h2>
+          <ul>
+            <li><Link href="https://tools.useoctree.com/tools/tikz-generator" target="_blank" rel="noopener noreferrer">TikZ Generator</Link> – Generate TikZ code with AI from text descriptions</li>
+            <li><Link href="https://tools.useoctree.com/tools/image-to-tikz" target="_blank" rel="noopener noreferrer">Image to TikZ</Link> – Convert images and diagrams to TikZ code</li>
+            <li><Link href="https://tools.useoctree.com/tools/latex-preview" target="_blank" rel="noopener noreferrer">LaTeX Preview</Link> – Test your TikZ code with live preview</li>
+          </ul>
+
           <RelatedPosts searchTerm="TikZ" title="Related TikZ Articles" />
 
           <div className="not-prose mt-12 p-6 bg-primary/5 rounded-lg border border-primary/10">

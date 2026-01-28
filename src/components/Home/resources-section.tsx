@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { unstable_cache } from 'next/cache'
-import { BookOpen, FileText, Wrench, ArrowRight } from 'lucide-react'
+import { BookOpen, FileText, Wrench, ArrowRight, FileCode } from 'lucide-react'
 
 // Cache blog fetch for performance
 const getCachedRecentBlogs = unstable_cache(
@@ -177,10 +177,101 @@ export async function ResourcesSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-green-600 dark:text-green-400 text-sm font-medium hover:underline mt-2"
             >
-              View all tools
+              View all 17 tools
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Templates Section */}
+      <div className="mt-8 bg-gradient-to-br from-orange-50 to-orange-100/50 dark:from-orange-950/30 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-100 dark:border-orange-900/50">
+        <div className="flex items-center gap-2 mb-4">
+          <FileCode className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+          <h3 className="font-semibold text-lg">LaTeX Templates</h3>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <Link
+            href="https://tools.useoctree.com/templates/research-paper"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              Research Paper
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates/thesis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              PhD Thesis
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates/beamer-presentation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              Beamer Slides
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates/academic-cv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              Academic CV
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates/neurips-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              NeurIPS 2026
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates/icml-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              ICML 2026
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates/cover-letter"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+          >
+            <p className="font-medium text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm">
+              Cover Letter
+            </p>
+          </Link>
+          <Link
+            href="https://tools.useoctree.com/templates"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group p-3 rounded-lg bg-orange-100 dark:bg-orange-900/30 hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors"
+          >
+            <p className="font-medium text-orange-700 dark:text-orange-300 text-sm flex items-center gap-1">
+              View all 71 templates
+              <ArrowRight className="w-4 h-4" />
+            </p>
+          </Link>
         </div>
       </div>
     </div>

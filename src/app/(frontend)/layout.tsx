@@ -5,6 +5,7 @@ import { DM_Sans, DM_Mono } from 'next/font/google'
 import localFont from 'next/font/local'
 import React from 'react'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
@@ -101,6 +102,19 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"697514dfd884d00011e90a5d"})},document.head.appendChild(o)}initApollo();`,
           }}
         />
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17915594708"
+          strategy="afterInteractive"
+        />
+        <Script id="google-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17915594708');
+          `}
+        </Script>
       </head>
       <body>
         <Providers>

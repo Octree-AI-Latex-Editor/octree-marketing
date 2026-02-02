@@ -9,6 +9,9 @@ node_modules
 # Payload default media upload directory
 public/media/
 
+# Blog cover images (uploaded to CMS)
+public/images/blog-covers/
+
 public/robots.txt
 public/sitemap*.xml
 

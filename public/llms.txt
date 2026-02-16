@@ -42,8 +42,8 @@ Website: https://www.useoctree.com
 ## Links
 
 - Website: https://www.useoctree.com
-- Login: https://www.useoctree.com/auth/login
-- Sign Up: https://www.useoctree.com/auth/sign-up
+- Login: https://app.useoctree.com/auth/login
+- Sign Up: https://app.useoctree.com/auth/sign-up
 - Blog: https://www.useoctree.com/blog
 - Contact: https://www.useoctree.com/contact
 - Pricing: https://www.useoctree.com/pricing

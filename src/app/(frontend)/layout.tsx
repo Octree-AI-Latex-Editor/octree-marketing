@@ -113,6 +113,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17915594708');
+            gtag('config', 'G-2G3ZGGMJ2Y');
           `}
         </Script>
       </head>

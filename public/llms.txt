@@ -47,6 +47,19 @@ Website: https://www.useoctree.com
 - Blog: https://www.useoctree.com/blog
 - Contact: https://www.useoctree.com/contact
 - Pricing: https://www.useoctree.com/pricing
+- Learn LaTeX: https://www.useoctree.com/learn/latex
+- Learn TikZ: https://www.useoctree.com/learn/tikz
+- Learn PGFPlots: https://www.useoctree.com/learn/pgfplots
+- Bold, Italics & Underline in LaTeX: https://www.useoctree.com/learn/bold-italics-underline
+- Page Size & Margins in LaTeX: https://www.useoctree.com/learn/page-size-margins
+- Subscripts & Superscripts in LaTeX: https://www.useoctree.com/learn/subscripts-superscripts
+- LaTeX Lists: https://www.useoctree.com/learn/lists
+- Greek Letters & Math Symbols: https://www.useoctree.com/learn/greek-letters-math-symbols
+- Using Colors in LaTeX: https://www.useoctree.com/learn/colors
+- Mathematical Expressions in LaTeX: https://www.useoctree.com/learn/mathematical-expressions
+- Integrals, Sums & Limits in LaTeX: https://www.useoctree.com/learn/integrals-sums-limits
+- Matrices in LaTeX: https://www.useoctree.com/learn/matrices
+- LaTeX Tables: https://www.useoctree.com/learn/tables
 
 ## Contact
 

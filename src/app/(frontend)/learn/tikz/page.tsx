@@ -215,6 +215,7 @@ export default async function LearnTikzPage() {
           <h2>Next Steps</h2>
           <ul>
             <li><Link href="/learn/pgfplots">Learn PGFPlots</Link> – Create data visualizations</li>
+            <li><Link href="/learn/colors">Using Colors in LaTeX</Link> – Master the xcolor package for colorful diagrams</li>
             <li><Link href="/learn/latex">Learn LaTeX Basics</Link> – Review fundamentals</li>
           </ul>
 

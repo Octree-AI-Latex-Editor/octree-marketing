@@ -24,3 +24,7 @@ node_modules/
 /playwright/.cache/
 
 scripts/
+
+# SEO analysis files
+seo_analysis.py
+keywords_gap*.csv

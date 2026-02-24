@@ -208,6 +208,16 @@ As shown by Einstein~\\cite{einstein1905}...
           <h2>Next Steps</h2>
           <p>Now that you understand the basics, explore more advanced topics:</p>
           <ul>
+            <li><Link href="/learn/bold-italics-underline">Bold, Italics &amp; Underline</Link> – Master text formatting commands</li>
+            <li><Link href="/learn/page-size-margins">Page Size &amp; Margins</Link> – Control your document layout</li>
+            <li><Link href="/learn/lists">LaTeX Lists</Link> – Create bulleted and numbered lists</li>
+            <li><Link href="/learn/tables">LaTeX Tables</Link> – Build professional tables</li>
+            <li><Link href="/learn/colors">Using Colors</Link> – Add color to your documents</li>
+            <li><Link href="/learn/mathematical-expressions">Mathematical Expressions</Link> – Write equations and formulas</li>
+            <li><Link href="/learn/greek-letters-math-symbols">Greek Letters &amp; Symbols</Link> – Complete symbol reference</li>
+            <li><Link href="/learn/subscripts-superscripts">Subscripts &amp; Superscripts</Link> – Math and scientific notation</li>
+            <li><Link href="/learn/integrals-sums-limits">Integrals, Sums &amp; Limits</Link> – Calculus notation</li>
+            <li><Link href="/learn/matrices">Matrices</Link> – Linear algebra notation</li>
             <li><Link href="/learn/tikz">Learn TikZ</Link> – Create diagrams and graphics</li>
             <li><Link href="/learn/pgfplots">Learn PGFPlots</Link> – Generate publication-quality plots</li>
           </ul>

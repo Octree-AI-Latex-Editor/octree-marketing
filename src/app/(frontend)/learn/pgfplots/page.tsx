@@ -262,6 +262,8 @@ export default async function LearnPgfplotsPage() {
           <h2>Next Steps</h2>
           <ul>
             <li><Link href="/learn/tikz">Learn TikZ</Link> – Create custom diagrams</li>
+            <li><Link href="/learn/colors">Using Colors in LaTeX</Link> – Customize colors in your plots</li>
+            <li><Link href="/learn/mathematical-expressions">Mathematical Expressions</Link> – Typeset equations for plot labels</li>
             <li><Link href="/learn/latex">Learn LaTeX Basics</Link> – Review fundamentals</li>
           </ul>
 

@@ -50,6 +50,16 @@ export async function Footer() {
     { title: 'Learn LaTeX', href: '/learn/latex' },
     { title: 'Learn TikZ', href: '/learn/tikz' },
     { title: 'Learn PGFPlots', href: '/learn/pgfplots' },
+    { title: 'Bold, Italics & Underline', href: '/learn/bold-italics-underline' },
+    { title: 'Page Size & Margins', href: '/learn/page-size-margins' },
+    { title: 'Subscripts & Superscripts', href: '/learn/subscripts-superscripts' },
+    { title: 'LaTeX Lists', href: '/learn/lists' },
+    { title: 'Greek Letters & Symbols', href: '/learn/greek-letters-math-symbols' },
+    { title: 'Using Colors', href: '/learn/colors' },
+    { title: 'Math Expressions', href: '/learn/mathematical-expressions' },
+    { title: 'Integrals, Sums & Limits', href: '/learn/integrals-sums-limits' },
+    { title: 'Matrices', href: '/learn/matrices' },
+    { title: 'LaTeX Tables', href: '/learn/tables' },
   ]
 
   // LaTeX Tools from Octree - All 17 tools
@@ -148,7 +158,7 @@ export async function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-gray-900 dark:text-white">Learn</h3>
             <nav className="flex flex-col gap-2">
-              {learnItems.map((item, i) => (
+              {learnItems.slice(0, 8).map((item, i) => (
                 <Link
                   key={i}
                   href={item.href}

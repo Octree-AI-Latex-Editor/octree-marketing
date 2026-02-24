@@ -55,6 +55,46 @@ const getPagesSitemap = unstable_cache(
         lastmod: dateFallback,
       },
       {
+        loc: `${SITE_URL}/learn/bold-italics-underline`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/page-size-margins`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/subscripts-superscripts`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/lists`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/greek-letters-math-symbols`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/colors`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/mathematical-expressions`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/integrals-sums-limits`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/matrices`,
+        lastmod: dateFallback,
+      },
+      {
+        loc: `${SITE_URL}/learn/tables`,
+        lastmod: dateFallback,
+      },
+      {
         loc: `${SITE_URL}/privacy`,
         lastmod: dateFallback,
       },

@@ -3,6 +3,15 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy | Octree',
   description: 'Privacy Policy for Octree - Learn how we collect, use, and protect your data.',
+  openGraph: {
+    title: 'Privacy Policy | Octree',
+    description: 'Privacy Policy for Octree - Learn how we collect, use, and protect your data.',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | Octree',
+    description: 'Privacy Policy for Octree - Learn how we collect, use, and protect your data.',
+  },
 }
 
 export default function PrivacyPolicy() {

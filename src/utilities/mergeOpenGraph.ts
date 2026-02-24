@@ -8,6 +8,9 @@ const defaultOpenGraph: Metadata['openGraph'] = {
   images: [
     {
       url: `${getServerSideURL()}/images/homepage-og.png`,
+      width: 1200,
+      height: 630,
+      alt: 'Octree - AI LaTeX Editor',
     },
   ],
   siteName: 'Octree',

@@ -59,5 +59,7 @@ export default async function Page() {
 export function generateMetadata(): Metadata {
   return {
     title: `Octree Blog`,
+    description:
+      'Tips, tutorials, and updates on LaTeX editing, academic writing, and the Octree platform.',
   }
 }

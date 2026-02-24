@@ -17,7 +17,7 @@ export const Logo = (props: Props) => {
     /* eslint-disable @next/next/no-img-element */
     <div className="flex items-center space-x-2">
       <img
-        alt="Payload Logo"
+        alt="Octree Logo"
         width={193}
         height={34}
         loading={loading}

@@ -18,7 +18,7 @@ const SITE_URL = normalizeSiteUrl(
 module.exports = {
   siteUrl: SITE_URL,
   generateRobotsTxt: true,
-  exclude: ['/blogs-sitemap.xml', '/pages-sitemap.xml', '/*', '/blog/*'],
+  exclude: ['/blogs-sitemap.xml', '/pages-sitemap.xml'],
   robotsTxtOptions: {
     policies: [
       {

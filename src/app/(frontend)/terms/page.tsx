@@ -3,6 +3,15 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Octree',
   description: 'Terms and Conditions for using Octree LaTeX editing platform.',
+  openGraph: {
+    title: 'Terms & Conditions | Octree',
+    description: 'Terms and Conditions for using Octree LaTeX editing platform.',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms & Conditions | Octree',
+    description: 'Terms and Conditions for using Octree LaTeX editing platform.',
+  },
 }
 
 export default function TermsAndConditions() {

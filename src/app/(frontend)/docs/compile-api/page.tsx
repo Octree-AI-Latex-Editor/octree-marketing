@@ -1,7 +1,8 @@
 import type { Metadata } from 'next/types'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle2, Zap, Server } from 'lucide-react'
 import { DocsSidebar } from './docs-sidebar'
+import { CodeSnippet } from './code-snippet'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -78,10 +79,8 @@ export default function CompileApiDocsPage() {
                 Verify the compilation service is running and accessible.
               </p>
 
-              <div className="not-prose bg-zinc-950 dark:bg-zinc-900 rounded-lg p-4 overflow-x-auto">
-                <pre className="text-sm text-zinc-50 font-mono">
-                  <code>curl http://138.197.13.3:3001/health</code>
-                </pre>
+              <div className="not-prose">
+                <CodeSnippet code="curl http://138.197.13.3:3001/health" />
               </div>
             </section>
 
@@ -115,16 +114,16 @@ export default function CompileApiDocsPage() {
                   <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
                     Example Request
                   </h4>
-                  <div className="not-prose bg-zinc-950 dark:bg-zinc-900 rounded-lg p-4 overflow-x-auto">
-                    <pre className="text-sm text-zinc-50 font-mono leading-relaxed">
-                      <code>{`curl -X POST http://138.197.13.3:3001/compile \ 
-  -H "Content-Type: text/plain" \ 
-  -d '\documentclass{article}
-\begin{document}
+                  <div className="not-prose">
+                    <CodeSnippet
+                      code={`curl -X POST http://138.197.13.3:3001/compile \\
+  -H "Content-Type: text/plain" \\
+  -d '\\documentclass{article}
+\\begin{document}
 Hello World!
-\end{document}' \ 
-  --output output.pdf`}</code>
-                    </pre>
+\\end{document}' \\
+  --output output.pdf`}
+                    />
                   </div>
                 </div>
               </div>
@@ -195,10 +194,10 @@ Hello World!
                   <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
                     Example Request
                   </h4>
-                  <div className="not-prose bg-zinc-950 dark:bg-zinc-900 rounded-lg p-4 overflow-x-auto">
-                    <pre className="text-sm text-zinc-50 font-mono leading-relaxed">
-                      <code>{`curl -X POST http://138.197.13.3:3001/compile \ 
-  -H "Content-Type: application/json" \ 
+                  <div className="not-prose">
+                    <CodeSnippet
+                      code={`curl -X POST http://138.197.13.3:3001/compile \\
+  -H "Content-Type: application/json" \\
   -d '{ 
     "files": [
       {
@@ -208,9 +207,9 @@ Hello World!
     ],
     "projectId": "my-project-123",
     "lastModifiedFile": "main.tex"
-  }' \ 
-  --output output.pdf`}</code>
-                    </pre>
+  }' \\
+  --output output.pdf`}
+                    />
                   </div>
                 </div>
               </div>

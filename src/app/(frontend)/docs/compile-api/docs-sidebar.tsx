@@ -4,7 +4,15 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { cn } from '@/utilities/ui'
 
-const navItems = [
+const navItems: {
+  category: string
+  items: {
+    id: string
+    label: string
+    method?: string
+    methodColor?: string
+  }[]
+}[] = [
   {
     category: 'Endpoints',
     items: [

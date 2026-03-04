@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { CheckCircle2, Zap, Server } from 'lucide-react'
 import { DocsSidebar } from './docs-sidebar'
 import { CodeSnippet } from './code-snippet'
+import { ResponseTabs } from './response-tabs'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -46,7 +47,7 @@ export default function CompileApiDocsPage() {
                 </CardHeader>
                 <CardContent>
                   <code className="text-sm bg-muted px-2 py-1.5 rounded font-mono">
-                    http://138.197.13.3:3001
+                    https://compile.useoctree.com
                   </code>
                 </CardContent>
               </Card>
@@ -80,7 +81,7 @@ export default function CompileApiDocsPage() {
               </p>
 
               <div className="not-prose">
-                <CodeSnippet code="curl http://138.197.13.3:3001/health" />
+                <CodeSnippet code="curl https://compile.useoctree.com/health" />
               </div>
             </section>
 
@@ -110,20 +111,43 @@ export default function CompileApiDocsPage() {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
-                    Example Request
-                  </h4>
-                  <div className="not-prose">
-                    <CodeSnippet
-                      code={`curl -X POST http://138.197.13.3:3001/compile \\
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
+                      Example Request
+                    </h4>
+                    <div className="not-prose">
+                      <CodeSnippet
+                        code={`curl -X POST https://compile.useoctree.com/compile \\
   -H "Content-Type: text/plain" \\
   -d '\\documentclass{article}
 \\begin{document}
 Hello World!
 \\end{document}' \\
   --output output.pdf`}
-                    />
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
+                      Response Structure
+                    </h4>
+                    <div className="not-prose">
+                      <ResponseTabs
+                        tabs={[
+                          {
+                            status: '200',
+                            label: 'OK',
+                            code: `// Returns binary PDF data directly.\nContent-Type: application/pdf\nContent-Disposition: attachment; filename="output.pdf"`,
+                          },
+                          {
+                            status: '400',
+                            label: 'Bad Request',
+                            code: `Content-Type: application/json\n{\n  "error": "Compilation failed",\n  "logs": "Detailed compilation logs..."\n}`,
+                          },
+                        ]}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -190,13 +214,14 @@ Hello World!
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
-                    Example Request
-                  </h4>
-                  <div className="not-prose">
-                    <CodeSnippet
-                      code={`curl -X POST http://138.197.13.3:3001/compile \\
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
+                      Example Request
+                    </h4>
+                    <div className="not-prose">
+                      <CodeSnippet
+                        code={`curl -X POST https://compile.useoctree.com/compile \\
   -H "Content-Type: application/json" \\
   -d '{ 
     "files": [
@@ -209,7 +234,29 @@ Hello World!
     "lastModifiedFile": "main.tex"
   }' \\
   --output output.pdf`}
-                    />
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
+                      Response Structure
+                    </h4>
+                    <div className="not-prose">
+                      <ResponseTabs
+                        tabs={[
+                          {
+                            status: '200',
+                            label: 'OK',
+                            code: `// Returns binary PDF data directly.\nContent-Type: application/pdf\nContent-Disposition: attachment; filename="output.pdf"`,
+                          },
+                          {
+                            status: '400',
+                            label: 'Bad Request',
+                            code: `Content-Type: application/json\n{\n  "error": "Compilation failed",\n  "logs": "Detailed compilation logs..."\n}`,
+                          },
+                        ]}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -221,7 +268,7 @@ Hello World!
             <section id="performance-caching" className="scroll-mt-24">
               <h2 className="text-2xl font-semibold mb-6">Caching & Performance Strategy</h2>
               <p className="text-muted-foreground mb-6">
-                When providing a <code className="text-foreground bg-muted px-1.5 py-0.5 rounded text-sm font-mono">projectId</code> in the JSON payload, the API uses a robust caching strategy to optimize compilation times significantly:
+                When providing a <code className="text-foreground bg-muted px-1.5 py-0.5 rounded text-sm font-mono before:content-none after:content-none">projectId</code> in the JSON payload, the API uses a robust caching strategy to optimize compilation times significantly:
               </p>
               
               <div className="grid gap-6 not-prose">

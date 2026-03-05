@@ -32,6 +32,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             Tools
           </Link>
         </Button>
+        <Button asChild variant="link" size="clear">
+          <Link href="/docs/compile-api">
+            Docs
+          </Link>
+        </Button>
       </div>
 
       <div className="flex items-center gap-1 text-neutral-800">
@@ -87,6 +92,11 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             <Button asChild variant="link" size="clear" className="text-lg">
               <Link href="https://tools.useoctree.com" target="_blank" rel="noopener noreferrer">
                 Tools
+              </Link>
+            </Button>
+            <Button asChild variant="link" size="clear" className="text-lg">
+              <Link href="/docs/compile-api">
+                Docs
               </Link>
             </Button>
             <Link href="https://app.useoctree.com" target="_blank" rel="noopener noreferrer">

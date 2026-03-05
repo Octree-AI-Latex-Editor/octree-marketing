@@ -121,6 +121,12 @@ export async function Footer() {
                 Learn
               </Link>
               <Link
+                href="/docs/compile-api"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
+              >
+                Docs
+              </Link>
+              <Link
                 href="/about"
                 className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
               >

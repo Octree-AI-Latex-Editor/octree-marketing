@@ -23,12 +23,6 @@ const navItems: {
         methodColor: 'text-green-600 dark:text-green-400 bg-green-500/10' 
       },
       { 
-        id: 'compile-simple', 
-        label: 'Compile (Simple)', 
-        method: 'POST', 
-        methodColor: 'text-blue-600 dark:text-blue-400 bg-blue-500/10' 
-      },
-      { 
         id: 'compile-multi-file', 
         label: 'Compile (Multi-file)', 
         method: 'POST', 

@@ -87,74 +87,6 @@ export default function CompileApiDocsPage() {
 
             <hr className="border-border" />
 
-            {/* Simple Compile */}
-            <section id="compile-simple" className="scroll-mt-24">
-              <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-                <span className="text-xs font-bold tracking-wider text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-1 rounded font-mono">
-                  POST
-                </span>
-                Compile LaTeX (Simple)
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                Send raw LaTeX content to receive a compiled PDF. Best suited for single-file,
-                simple documents without assets or complex bibliographies.
-              </p>
-
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
-                    Headers
-                  </h4>
-                  <div className="not-prose inline-flex bg-muted/50 border rounded-md px-3 py-1.5 text-sm font-mono">
-                    <span className="text-muted-foreground mr-2">Content-Type:</span>
-                    text/plain
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
-                      Example Request
-                    </h4>
-                    <div className="not-prose">
-                      <CodeSnippet
-                        code={`curl -X POST https://compile.useoctree.com/compile \\
-  -H "Content-Type: text/plain" \\
-  -d '\\documentclass{article}
-\\begin{document}
-Hello World!
-\\end{document}' \\
-  --output output.pdf`}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3 uppercase tracking-wider text-muted-foreground">
-                      Response Structure
-                    </h4>
-                    <div className="not-prose">
-                      <ResponseTabs
-                        tabs={[
-                          {
-                            status: '200',
-                            label: 'OK',
-                            code: `// Returns binary PDF data directly.\nContent-Type: application/pdf\nContent-Disposition: attachment; filename="output.pdf"`,
-                          },
-                          {
-                            status: '400',
-                            label: 'Bad Request',
-                            code: `Content-Type: application/json\n{\n  "error": "Compilation failed",\n  "logs": "Detailed compilation logs..."\n}`,
-                          },
-                        ]}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <hr className="border-border" />
-
             {/* Multi-file Compile */}
             <section id="compile-multi-file" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
@@ -223,6 +155,7 @@ Hello World!
                       <CodeSnippet
                         code={`curl -X POST https://compile.useoctree.com/compile \\
   -H "Content-Type: application/json" \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
   -d '{ 
     "files": [
       {
@@ -308,6 +241,11 @@ Hello World!
                   </CardContent>
                 </Card>
               </div>
+              <p className="text-muted-foreground mt-8">
+                Interested in an API key for this endpoint? Reach out for API key at{' '}
+                <a href="mailto:basil@useoctree.online">basil@useoctree.online</a> for $20 USD / month
+                (unlimited files).
+              </p>
             </section>
           </div>
         </main>

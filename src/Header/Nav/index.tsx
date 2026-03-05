@@ -34,7 +34,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         </Button>
         <Button asChild variant="link" size="clear">
           <Link href="/docs/compile-api">
-            API
+            Docs
           </Link>
         </Button>
       </div>
@@ -96,7 +96,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
             </Button>
             <Button asChild variant="link" size="clear" className="text-lg">
               <Link href="/docs/compile-api">
-                API
+                Docs
               </Link>
             </Button>
             <Link href="https://app.useoctree.com" target="_blank" rel="noopener noreferrer">

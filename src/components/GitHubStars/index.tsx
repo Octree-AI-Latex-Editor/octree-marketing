@@ -44,9 +44,9 @@ export const GitHubStars: React.FC<GitHubStarsProps> = ({ repo, className = '' }
 
       <div className="flex items-center gap-1">
         <Star className="w-3 h-3 fill-current" />
-        <span className="font-mono text-xs w-[15px] h-[15px]">
+        <span className="font-mono text-xs whitespace-nowrap">
           {loading ? (
-            <Skeleton className="w-full h-full" />
+            <Skeleton className="w-[15px] h-[15px]" />
           ) : stars !== null ? (
             stars.toLocaleString()
           ) : (

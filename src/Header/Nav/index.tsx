@@ -18,14 +18,12 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
   return (
     <nav className="flex gap-3 items-center">
-      <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-4 items-center">
+      <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-6 xl:gap-8 items-center">
         {navItems.map(({ link }, i) => {
           return <CMSLink key={i} {...link} appearance="link" />
         })}
         <Button asChild variant="link" size="clear">
-          <Link href="/learn">
-            Learn
-          </Link>
+          <Link href="/learn">Learn</Link>
         </Button>
         <Button asChild variant="link" size="clear">
           <Link href="https://tools.useoctree.com" target="_blank" rel="noopener noreferrer">
@@ -33,9 +31,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
           </Link>
         </Button>
         <Button asChild variant="link" size="clear">
-          <Link href="/docs/compile-api">
-            Docs
-          </Link>
+          <Link href="/docs/compile-api">Docs</Link>
         </Button>
       </div>
 
@@ -85,9 +81,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
               return <CMSLink key={i} {...link} appearance="link" className="text-lg" />
             })}
             <Button asChild variant="link" size="clear" className="text-lg">
-              <Link href="/learn">
-                Learn
-              </Link>
+              <Link href="/learn">Learn</Link>
             </Button>
             <Button asChild variant="link" size="clear" className="text-lg">
               <Link href="https://tools.useoctree.com" target="_blank" rel="noopener noreferrer">
@@ -95,9 +89,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
               </Link>
             </Button>
             <Button asChild variant="link" size="clear" className="text-lg">
-              <Link href="/docs/compile-api">
-                Docs
-              </Link>
+              <Link href="/docs/compile-api">Docs</Link>
             </Button>
             <Link href="https://app.useoctree.com" target="_blank" rel="noopener noreferrer">
               <Button variant="default" className="w-full">

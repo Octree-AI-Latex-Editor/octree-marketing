@@ -18,7 +18,7 @@ export function Cross({ className }: { className?: string }) {
     <span
       aria-hidden
       className={cn(
-        'pointer-events-none absolute z-10 flex size-8 items-center justify-center bg-background',
+        'pointer-events-none absolute z-10 hidden size-8 items-center justify-center bg-background min-[1051px]:flex',
         className,
       )}
     >
@@ -60,7 +60,7 @@ export function GridSection({
     <div className={cn('relative', !first && 'border-t', railLine)}>
       <div
         className={cn(
-          'relative mx-auto max-w-[1050px] border-x bg-background',
+          'relative mx-auto max-w-[var(--grid-max-width)] border-x bg-background',
           railLine,
           className,
         )}

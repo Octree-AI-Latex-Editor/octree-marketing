@@ -3,12 +3,12 @@ import { PrimaryButton } from './primary-button'
 
 export function CallToAction() {
   return (
-    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] relative px-6 md:px-12">
+    <div className="py-[34px] md:py-[68px] max-w-[var(--grid-max-width)] mx-auto flex flex-col gap-[37px] md:gap-[74px] relative px-6 md:px-12">
       <div
         className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 md:-translate-y-6 pointer-events-none block opacity-20 z-[1] blur-[5px]"
         style={{
           width: '100vw',
-          maxWidth: '1050px',
+          maxWidth: 'var(--grid-max-width)',
           height: '500px',
           background:
             'linear-gradient(179deg, #c7dbff 0%, rgba(199, 219, 255, 0.35) 60%, rgba(255, 255, 255, 0) 75%)',

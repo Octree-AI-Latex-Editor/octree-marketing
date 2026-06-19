@@ -37,7 +37,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data, githubStars })
       style={hatchStyle}
       {...(theme ? { 'data-theme': theme } : {})}
     >
-      <div className="relative mx-auto max-w-[1050px] border-x border-neutral-200 bg-background px-6 dark:border-neutral-800">
+      <div className="relative mx-auto max-w-[var(--grid-max-width)] border-x border-neutral-200 bg-background px-6 dark:border-neutral-800">
         <Cross className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
         <Cross className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
         <div className="py-4 lg:py-6 flex justify-between items-center">

@@ -44,7 +44,7 @@ function Step({ children }: { children: React.ReactNode }) {
 
 export function HowItWorks() {
   return (
-    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-6 md:px-12">
+    <div className="py-[34px] md:py-[68px] max-w-[var(--grid-max-width)] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-6 md:px-12">
       <SectionHeader
         title="How it works"
         description="Seamlessly transform your academic writing experience"

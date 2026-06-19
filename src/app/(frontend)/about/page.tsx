@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
-import { Cross, hatchStyle } from '@/components/grid'
+import { GridSection, HatchGround, hatchStyle } from '@/components/grid'
+import { cn } from '@/utilities/ui'
 
 export const metadata: Metadata = {
   title: 'About — Octree',
@@ -18,13 +19,8 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <section className="relative border-t border-neutral-200 dark:border-neutral-800">
-      <div className="relative mx-auto max-w-5xl border-x border-neutral-200 px-6 py-16 dark:border-neutral-800 md:px-12 md:py-24">
-        <Cross className="left-0 top-0 -translate-x-1/2 -translate-y-1/2" />
-        <Cross className="right-0 top-0 -translate-y-1/2 translate-x-1/2" />
-        <Cross className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
-        <Cross className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
-
+    <HatchGround>
+      <GridSection first last className="px-6 py-16 md:px-12 md:py-24">
         <div className="space-y-8 md:space-y-16">
           <div className="relative z-10 max-w-2xl space-y-6">
             <h1 className="text-4xl font-medium tracking-tight lg:text-5xl">
@@ -54,11 +50,18 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-5 sm:gap-6" style={hatchStyle}>
-              {stats.map((stat) => (
+            <div
+              className="grid grid-cols-2 gap-5 border border-neutral-300 dark:border-neutral-700 sm:gap-6"
+              style={hatchStyle}
+            >
+              {stats.map((stat, i) => (
                 <div
                   key={stat.label}
-                  className="space-y-2 border border-dashed border-neutral-300 bg-background p-5 dark:border-neutral-700 sm:p-6"
+                  className={cn(
+                    'space-y-2 border-dashed border-neutral-300 bg-background p-5 dark:border-neutral-700 sm:p-6',
+                    i % 2 === 0 ? 'border-r' : 'border-l',
+                    i < 2 ? 'border-b' : 'border-t',
+                  )}
                 >
                   <div className="text-4xl font-medium lg:text-5xl">{stat.value}</div>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
@@ -67,7 +70,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </GridSection>
+    </HatchGround>
   )
 }

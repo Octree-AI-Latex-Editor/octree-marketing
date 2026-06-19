@@ -13,7 +13,10 @@ import { DiscordIcon } from '@/components/icons/discord'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 
-export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
+export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null }> = ({
+  data,
+  githubStars,
+}) => {
   const navItems = data?.navItems || []
 
   return (
@@ -36,7 +39,7 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
       </div>
 
       <div className="flex items-center gap-1 text-neutral-800">
-        <GitHubStars repo="Octree-AI-Latex-Editor/octree" />
+        <GitHubStars repo="Octree-AI-Latex-Editor/octree" stars={githubStars} />
         <Link
           href="https://www.reddit.com/r/Octree/"
           target="_blank"

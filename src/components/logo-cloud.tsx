@@ -3,7 +3,7 @@ import { InfiniteSlider } from '@/components/ui/infinite-slider'
 export function LogoCloud() {
   return (
     <section className="bg-background overflow-hidden py-16">
-      <div className="group relative m-auto max-w-7xl px-6">
+      <div className="group relative m-auto max-w-7xl">
         <div className="flex flex-col items-center">
           <div className="mb-8">
             <p className="text-center text-lg md:text-xl font-medium">

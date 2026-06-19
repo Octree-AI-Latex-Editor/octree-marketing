@@ -3,9 +3,9 @@ import { PrimaryButton } from './primary-button'
 
 export function CallToAction() {
   return (
-    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] relative px-4">
+    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] relative px-6 md:px-12">
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 -translate-y-10 md:-translate-y-20 pointer-events-none block opacity-20 z-[1] blur-[5px]"
+        className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 md:-translate-y-6 pointer-events-none block opacity-20 z-[1] blur-[5px]"
         style={{
           width: '100vw',
           maxWidth: '1050px',

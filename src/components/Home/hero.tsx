@@ -41,16 +41,9 @@ export function HeroSection() {
 
   return (
     <div className="relative overflow-hidden">
-      <div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-[600px] blur-[20px] rounded-full overflow-hidden z-[1] pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(0deg, #c7dbff 0%, rgba(228, 241, 254, 0.15) 51%, rgba(255, 255, 255, 0) 100%)',
-        }}
-      />
       <section>
         <div className="relative pt-16 pb-8 md:pt-20 z-10">
-          <div className="text-center px-4">
+          <div className="relative z-10 text-center px-4">
             <div className="mb-6">
               <div className="max-w-5xl mx-auto">
                 <h1 className="text-[32px] md:text-[48px] lg:text-[56px] text-black leading-[1.05] tracking-tight font-heading">
@@ -119,11 +112,21 @@ export function HeroSection() {
             }}
           >
             <div className="max-w-6xl mx-auto px-4">
-              <Dialog open={isOpen} onOpenChange={setIsOpen}>
+              <div className="relative">
+                {/* Soft glow sitting behind the CTA button, fading down behind the video top */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 -top-16 z-0 h-48 blur-[55px]"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, rgba(199, 219, 255, 0.7) 0%, rgba(228, 241, 254, 0.12) 55%, rgba(255, 255, 255, 0) 100%)',
+                  }}
+                />
+                <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
                   <button className="relative w-full group cursor-pointer focus:outline-none border-0 p-0 bg-transparent">
                     {/* Video Thumbnail */}
-                    <div className="relative overflow-hidden rounded-lg">
+                    <div className="relative overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800">
                       <video
                         src="/video/Demo.mp4"
                         poster="/images/overlay.png"
@@ -181,7 +184,8 @@ export function HeroSection() {
                     </VideoPlayerControlBar>
                   </VideoPlayer>
                 </DialogContent>
-              </Dialog>
+                </Dialog>
+              </div>
             </div>
           </AnimatedGroup>
         </div>

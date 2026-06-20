@@ -54,7 +54,7 @@ export async function ResourcesSection() {
   const blogs = await getCachedRecentBlogs()
 
   return (
-    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-4">
+    <div className="py-[34px] md:py-[68px] max-w-[var(--grid-max-width)] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-4">
       <div className="text-center">
         <p className="text-primary text-lg md:text-xl tracking-[-0.04] mb-4">Resources</p>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight">

@@ -7,13 +7,15 @@ import React, { useEffect, useState } from 'react'
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
+import { Cross, hatchStyle } from '@/components/grid'
 import { HeaderNav } from './Nav'
 
 interface HeaderClientProps {
   data: Header
+  githubStars: number | null
 }
 
-export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+export const HeaderClient: React.FC<HeaderClientProps> = ({ data, githubStars }) => {
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -30,12 +32,20 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20" {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" />
-        </Link>
-        <HeaderNav data={data} />
+    <header
+      className="relative z-20 border-b border-neutral-200 dark:border-neutral-800"
+      style={hatchStyle}
+      {...(theme ? { 'data-theme': theme } : {})}
+    >
+      <div className="relative mx-auto max-w-[var(--grid-max-width)] border-x border-neutral-200 bg-background px-6 dark:border-neutral-800">
+        <Cross className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
+        <Cross className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
+        <div className="py-4 lg:py-6 flex justify-between items-center">
+          <Link href="/">
+            <Logo loading="eager" priority="high" />
+          </Link>
+            <HeaderNav data={data} githubStars={githubStars} />
+        </div>
       </div>
     </header>
   )

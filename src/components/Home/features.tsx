@@ -42,7 +42,7 @@ function FeatureCard({ children }: { children: React.ReactNode }) {
 
 export function Features() {
   return (
-    <div className="py-[34px] md:py-[68px] max-w-[1050px] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-4">
+    <div className="py-[34px] md:py-[68px] max-w-[var(--grid-max-width)] mx-auto flex flex-col gap-[37px] md:gap-[74px] px-6 md:px-12">
       <p className="text-primary text-lg md:text-xl tracking-[-0.04] text-center">Features</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">

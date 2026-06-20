@@ -8,20 +8,39 @@ import { FAQSection } from '@/components/Home/faq-section'
 import { CallToAction } from '@/components/Home/call-to-action'
 import { FeatureHeader } from '@/components/Home/feature-header'
 // import { ResourcesSection } from '@/components/Home/resources-section'
+import { GridSection, HatchGround } from '@/components/grid'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 export default function Page() {
   return (
     <main>
-      <HeroSection />
-      <FeatureHeader />
-      <LogoCloud />
-      <Features />
-      {/* <ResourcesSection /> */}
-      <Pricing />
-      <HowItWorks />
-      <FAQSection />
-      <CallToAction />
+      <HatchGround>
+        <GridSection first>
+          <HeroSection />
+        </GridSection>
+        <GridSection>
+          <LogoCloud />
+        </GridSection>
+        <GridSection>
+          <FeatureHeader />
+        </GridSection>
+        <GridSection>
+          <Features />
+        </GridSection>
+        {/* <ResourcesSection /> */}
+        <GridSection>
+          <Pricing />
+        </GridSection>
+        <GridSection>
+          <HowItWorks />
+        </GridSection>
+        <GridSection>
+          <FAQSection />
+        </GridSection>
+        <GridSection last>
+          <CallToAction />
+        </GridSection>
+      </HatchGround>
     </main>
   )
 }

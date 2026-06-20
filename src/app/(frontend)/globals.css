@@ -102,6 +102,22 @@ html[data-theme='light'] {
   opacity: initial;
 }
 
+:root {
+  --grid-max-width: 1050px;
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --grid-max-width: 1280px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --grid-max-width: 1440px;
+  }
+}
+
 @layer utilities {
   .mask-l-from-35\% {
     -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, black 55%, black 100%);

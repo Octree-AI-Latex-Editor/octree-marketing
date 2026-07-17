@@ -17,7 +17,7 @@ export const AboutBlock: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h1 className="text-[40px] md:text-[56px] lg:text-[64px] text-black leading-[1.1] tracking-tight font-heading mb-6">
-              About <span className="text-[#478eff]">Our Story</span>
+              About <span className="text-primary">Our Story</span>
             </h1>
             <p className="text-xl md:text-2xl text-[#636363] font-medium tracking-[-0.02]">
               We&apos;re on a mission to make research document creation effortless and accessible
@@ -59,9 +59,9 @@ export const AboutBlock: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <div className="mb-4">
-                <div className="w-12 h-12 bg-[#478eff]/10 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-[#478eff]"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -84,9 +84,9 @@ export const AboutBlock: React.FC = () => {
 
             <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <div className="mb-4">
-                <div className="w-12 h-12 bg-[#478eff]/10 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-[#478eff]"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -109,9 +109,9 @@ export const AboutBlock: React.FC = () => {
 
             <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <div className="mb-4">
-                <div className="w-12 h-12 bg-[#478eff]/10 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-[#478eff]"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -168,7 +168,7 @@ export const AboutBlock: React.FC = () => {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[#478eff] rounded-full hover:bg-[#3a7ae0] transition-colors duration-200 shadow-sm"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-colors duration-200 shadow-sm"
           >
             Try Now
           </Link>

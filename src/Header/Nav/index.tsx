@@ -66,7 +66,7 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
         rel="noopener noreferrer"
         className="hidden lg:block"
       >
-        <Button variant="default" size="sm" className="rounded-[8px] h-8">
+        <Button variant="default" size="sm" className="h-8">
           Login
         </Button>
       </Link>

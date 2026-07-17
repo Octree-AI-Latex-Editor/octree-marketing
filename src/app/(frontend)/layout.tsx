@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
-import { DM_Sans, DM_Mono } from 'next/font/google'
+import { DM_Sans, DM_Mono, Space_Grotesk } from 'next/font/google'
 import localFont from 'next/font/local'
 import React from 'react'
 import { Analytics } from '@vercel/analytics/next'
@@ -38,6 +38,12 @@ const satoshi = localFont({
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
+})
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['500'],
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
 })
 
 const dmMono = DM_Mono({
@@ -79,7 +85,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html
-      className={cn(satoshi.className, dmSans.variable, dmMono.variable)}
+      className={cn(satoshi.className, dmSans.variable, dmMono.variable, spaceGrotesk.variable)}
       lang="en"
       suppressHydrationWarning
     >

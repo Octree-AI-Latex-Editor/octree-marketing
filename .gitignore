@@ -28,3 +28,6 @@ scripts/
 # SEO analysis files
 seo_analysis.py
 keywords_gap*.csv
+
+# typescript
+*.tsbuildinfo

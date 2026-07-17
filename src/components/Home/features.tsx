@@ -89,7 +89,7 @@ export function Features() {
 
         <FeatureCard>
           <FeatureVisual>
-            <span className="absolute top-3 right-3 md:top-4 md:right-4 bg-primary text-white px-2 py-1 rounded-xl border-[1.5px] border-blue-700/20 text-xs md:text-sm">
+            <span className="absolute top-3 right-3 md:top-4 md:right-4 bg-primary text-white px-2 py-1 rounded-lg border-[1.5px] border-blue-700/20 text-xs md:text-sm">
               Coming Soon
             </span>
             <div className="flex items-center gap-2">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types'
 import Link from 'next/link'
+import { buttonVariants } from '@/components/ui/button'
 import React from 'react'
 import {
   generateBreadcrumbSchema,
@@ -252,7 +253,7 @@ As shown by Einstein~\\cite{einstein1905}...
               href="https://app.useoctree.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-[8px] bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+              className={buttonVariants()}
             >
               Try Octree Free →
             </Link>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Octree — Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Geist:wght@300..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* color */
+    --color-bg: #FFFFFF;
+    --color-surface: #F6F8FB;
+    --color-border: #DCE4F0;
+    --color-muted: #8A93A6;
+    --color-ink: #0E121A;
+    --color-navy: #0A1428;
+    --color-primary: #0F62FE;
+    --color-primary-strong: #0C50D0;
+    --color-accent: #4485FE;
+    --color-cyan: #3ED6FF;
+    --color-grad-tile-a: #4485FE;
+    --color-grad-tile-b: #0C50D0;
+    --color-grad-ring-a: #FFFFFF;
+    --color-grad-ring-b: #ABC8FF;
+    /* type */
+    --font-display: "Space Grotesk", sans-serif;
+    --font-sans: "Geist", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --text-xs: 12px; --text-sm: 13px; --text-base: 15px; --text-lg: 18px;
+    --text-xl: 22px; --text-2xl: 28px; --text-3xl: 36px; --text-4xl: 48px;
+    --tracking-tight: -0.02em; --tracking-wide: 0.12em;
+    /* shape */
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 22px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--color-bg); font-family: var(--font-sans); color: var(--color-ink); padding: 72px; max-width: 1480px; margin: 0 auto; }
+  section { margin-bottom: 88px; }
+  .eyebrow { font-size: var(--text-sm); font-weight: 500; letter-spacing: var(--tracking-wide); color: var(--color-primary); text-transform: uppercase; }
+  h1 { font-family: var(--font-display); font-weight: 500; font-size: var(--text-4xl); letter-spacing: var(--tracking-tight); margin-top: 12px; }
+  .intro { font-size: var(--text-base); color: var(--color-muted); margin-top: 12px; max-width: 560px; line-height: 1.5; }
+  h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); margin-bottom: 8px; }
+  .section-note { font-size: var(--text-sm); color: var(--color-muted); margin-bottom: 28px; max-width: 640px; line-height: 1.5; }
+  .row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .well { background: var(--color-surface); border-radius: var(--radius-lg); padding: 40px; display: flex; align-items: center; justify-content: center; }
+  .well.dark { background: var(--color-navy); }
+  .cap { font-size: var(--text-sm); color: var(--color-muted); margin-top: 12px; }
+  .cap b { color: var(--color-ink); font-weight: 600; }
+  .lockup { display: flex; align-items: center; gap: 16px; }
+  .wordmark { font-family: var(--font-display); font-weight: 500; letter-spacing: var(--tracking-tight); font-size: 40px; }
+  /* color */
+  .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .swatch { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); }
+  .swatch .chip { height: 96px; }
+  .swatch .meta { padding: 14px 16px; background: #fff; }
+  .swatch .name { font-size: var(--text-sm); font-weight: 600; }
+  .swatch .hex { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); margin-top: 3px; }
+  /* type scale */
+  .type-row { display: flex; align-items: baseline; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--color-border); }
+  .type-meta { width: 300px; flex-shrink: 0; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); }
+  /* ui kit — buttons adapted from tailark.com/snippets/button, recolored to brand */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-sans); font-size: 14px; font-weight: 500; border-radius: var(--radius-md); height: 38px; padding: 0 18px; border: none; cursor: pointer; transition: filter .2s, transform .15s, background .2s; }
+  .btn:active { filter: brightness(0.92); }
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(to top, var(--color-primary), #3178FE);
+    border: 1px solid rgba(9, 9, 11, 0.25);
+    box-shadow: 0 4px 6px -1px rgba(9, 9, 11, 0.2), 0 2px 4px -2px rgba(9, 9, 11, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-soft {
+    background: linear-gradient(to top, #EEF2F8, #FFFFFF);
+    color: var(--color-ink);
+    border: 1px solid #D6DEEA;
+    box-shadow: 0 1px 2px rgba(9, 9, 11, 0.1);
+  }
+  .btn-soft:hover { background: linear-gradient(to top, #EEF2F8, #F6F9FC); }
+  .btn-ghost { background: transparent; color: var(--color-primary); box-shadow: none; }
+  .input { font-family: var(--font-sans); font-size: var(--text-base); padding: 10px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-border); width: 260px; outline: none; }
+  .input:focus { border-color: var(--color-primary); }
+  .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; width: 320px; }
+  .toast { display: flex; align-items: center; gap: 12px; background: var(--color-navy); color: #fff; border-radius: var(--radius-md); padding: 12px 18px; font-size: var(--text-sm); width: fit-content; }
+  .chip-radius { background: var(--color-surface); border: 1px solid var(--color-border); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; width: 120px; height: 90px; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); }
+  .grad { height: 96px; border-radius: var(--radius-lg); }
+  code { font-family: var(--font-mono); font-size: var(--text-xs); background: var(--color-surface); padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="eyebrow">Octree — Brand System v1</div>
+  <h1>Structure, made light</h1>
+  <p class="intro">Octree turns conversations into typeset documents. The identity is built on one idea — recursive structure — expressed as an octagonal O, lit from above. The blue is Editorial Blue #0F62FE — chosen for its working-tool seriousness and 5:1 contrast with white text.</p>
+</section>
+
+<section>
+  <h2>Logo</h2>
+  <p class="section-note">The mark is the G2 icon: an octagon ring on a vertical gradient tile, light falling from directly above. The wordmark is always Space Grotesk Medium, lowercase, tracked −0.02em. Never letterspace it, never bold it, never set it in another face.</p>
+  <div class="row">
+    <div>
+      <div class="well" style="width: 460px; height: 200px;">
+        <div class="lockup">
+          <svg width="64" height="64" viewBox="0 0 96 96" fill="none">
+            <defs>
+              <linearGradient id="t1" x1="48" y1="0" x2="48" y2="96" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4485FE"/><stop offset="1" stop-color="#0C50D0"/></linearGradient>
+              <linearGradient id="r1" x1="48" y1="20" x2="48" y2="76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ABC8FF"/></linearGradient>
+            </defs>
+            <rect width="96" height="96" rx="22" fill="url(#t1)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="url(#r1)"/>
+          </svg>
+          <div class="wordmark">octree</div>
+        </div>
+      </div>
+      <div class="cap"><b>Primary lockup</b> · icon + wordmark, gap = ¼ icon width</div>
+    </div>
+    <div>
+      <div class="well" style="width: 220px; height: 200px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <svg width="56" height="56" viewBox="0 0 96 96" fill="none">
+            <defs>
+              <linearGradient id="t2" x1="48" y1="0" x2="48" y2="96" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4485FE"/><stop offset="1" stop-color="#0C50D0"/></linearGradient>
+              <linearGradient id="r2" x1="48" y1="20" x2="48" y2="76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ABC8FF"/></linearGradient>
+            </defs>
+            <rect width="96" height="96" rx="22" fill="url(#t2)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="url(#r2)"/>
+          </svg>
+          <div class="wordmark" style="font-size: 26px;">octree</div>
+        </div>
+      </div>
+      <div class="cap"><b>Stacked</b> · splash, empty states</div>
+    </div>
+    <div>
+      <div class="well dark" style="width: 340px; height: 200px;">
+        <div class="lockup">
+          <svg width="52" height="52" viewBox="0 0 96 96" fill="none">
+            <defs>
+              <linearGradient id="t3" x1="48" y1="0" x2="48" y2="96" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4485FE"/><stop offset="1" stop-color="#0C50D0"/></linearGradient>
+              <linearGradient id="r3" x1="48" y1="20" x2="48" y2="76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ABC8FF"/></linearGradient>
+            </defs>
+            <rect width="96" height="96" rx="22" fill="url(#t3)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="url(#r3)"/>
+          </svg>
+          <div class="wordmark" style="color: #fff; font-size: 34px;">octree</div>
+        </div>
+      </div>
+      <div class="cap"><b>On dark</b> · icon unchanged, wordmark white</div>
+    </div>
+    <div>
+      <div class="well" style="width: 320px; height: 200px; padding: 24px;">
+        <div id="scaleTest" style="display: flex; flex-direction: column; gap: 20px;"></div>
+      </div>
+      <div class="cap"><b>One icon, all sizes</b> · gradient at every size, 48 / 32 / 24 / 16</div>
+      <script>
+        const sizes = [48, 32, 24, 16];
+        const octo = f => `<path fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="${f}"/>`;
+        const gradIcon = (s, i) => `<svg width="${s}" height="${s}" viewBox="0 0 96 96" fill="none">
+          <defs><linearGradient id="sgt${i}" x1="48" y1="0" x2="48" y2="96" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4485FE"/><stop offset="1" stop-color="#0C50D0"/></linearGradient>
+          <linearGradient id="sgr${i}" x1="48" y1="20" x2="48" y2="76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ABC8FF"/></linearGradient></defs>
+          <rect width="96" height="96" rx="22" fill="url(#sgt${i})"/>${octo(`url(#sgr${i})`)}</svg>`;
+        document.getElementById("scaleTest").innerHTML = `
+          <div style="display:flex;align-items:flex-end;gap:16px;">${sizes.map((s, i) => gradIcon(s, i)).join("")}</div>`;
+      </script>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Color</h2>
+  <p class="section-note">One blue does the work. Cyan appears only where the AI is acting — generation progress, streaming, glow moments. Never use cyan for static UI.</p>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background: var(--color-ink)"></div><div class="meta"><div class="name">Ink</div><div class="hex">--color-ink · #0E121A</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-navy)"></div><div class="meta"><div class="name">Navy</div><div class="hex">--color-navy · #0A1428</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-muted)"></div><div class="meta"><div class="name">Muted</div><div class="hex">--color-muted · #8A93A6</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-border)"></div><div class="meta"><div class="name">Border</div><div class="hex">--color-border · #DCE4F0</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-surface); border-bottom: 1px solid var(--color-border)"></div><div class="meta"><div class="name">Surface</div><div class="hex">--color-surface · #F6F8FB</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-primary)"></div><div class="meta"><div class="name">Primary</div><div class="hex">--color-primary · #0F62FE</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-primary-strong)"></div><div class="meta"><div class="name">Primary strong</div><div class="hex">--color-primary-strong · #0C50D0</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-accent)"></div><div class="meta"><div class="name">Accent</div><div class="hex">--color-accent · #4485FE</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--color-cyan)"></div><div class="meta"><div class="name">Cyan (AI only)</div><div class="hex">--color-cyan · #3ED6FF</div></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(180deg, var(--color-grad-tile-a), var(--color-grad-tile-b))"></div><div class="meta"><div class="name">Tile gradient</div><div class="hex">#4485FE → #0C50D0 · 180°</div></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Typography</h2>
+  <p class="section-note">Space Grotesk Medium for display and headings — it is the brand voice, always weight 500, tracked −0.02em. Geist for everything functional: UI, body, captions. Geist Mono for code and LaTeX.</p>
+  <div class="type-row"><div class="type-meta">display · Space Grotesk 500 · 48/1.1 · −0.02em</div><div style="font-family:var(--font-display);font-weight:500;font-size:48px;letter-spacing:-0.02em;line-height:1.1;">Write LaTeX at the speed of thought</div></div>
+  <div class="type-row"><div class="type-meta">h2 · Space Grotesk 500 · 28/1.2 · −0.02em</div><div style="font-family:var(--font-display);font-weight:500;font-size:28px;letter-spacing:-0.02em;">Compile, collaborate, publish</div></div>
+  <div class="type-row"><div class="type-meta">h3 · Geist 600 · 18/1.3</div><div style="font-weight:600;font-size:18px;">Project settings</div></div>
+  <div class="type-row"><div class="type-meta">body · Geist 400 · 15/1.5</div><div style="font-size:15px;line-height:1.5;max-width:560px;">Octree compiles your document on every save and streams the PDF back in under a second, so the preview is never stale.</div></div>
+  <div class="type-row"><div class="type-meta">caption · Geist 400 · 13/1.45 · muted</div><div style="font-size:13px;color:var(--color-muted);">Last compiled 12 seconds ago</div></div>
+  <div class="type-row"><div class="type-meta">eyebrow · Geist 500 · 13 · +0.12em caps</div><div class="eyebrow">Document generation</div></div>
+  <div class="type-row" style="border-bottom:none;"><div class="type-meta">code · Geist Mono 400 · 13</div><div style="font-family:var(--font-mono);font-size:13px;">\documentclass{article}</div></div>
+</section>
+
+<section>
+  <h2>Shape &amp; radius</h2>
+  <p class="section-note">Radii step 6 / 10 / 16 / 22. The octagon's 45° corner cut may be used as a decorative device on cards and callouts — one corner only, always top-right.</p>
+  <div class="row">
+    <div class="chip-radius" style="border-radius: var(--radius-sm)">sm · 6</div>
+    <div class="chip-radius" style="border-radius: var(--radius-md)">md · 10</div>
+    <div class="chip-radius" style="border-radius: var(--radius-lg)">lg · 16</div>
+    <div class="chip-radius" style="border-radius: var(--radius-xl)">xl · 22</div>
+    <div class="chip-radius" style="border-radius: var(--radius-lg); clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);">octagon cut</div>
+  </div>
+</section>
+
+<section>
+  <h2>UI kit</h2>
+  <p class="section-note">Two button styles, both Tailark-derived and top-lit like the icon: Primary is the brand-blue gradient with an inset white ring; Secondary is the soft gradient outline. Ghost for tertiary actions. No other button styles exist.</p>
+  <div class="row" style="align-items: center;">
+    <button class="btn btn-primary">Compile PDF</button>
+    <button class="btn btn-soft">Save draft</button>
+    <button class="btn btn-ghost">View history</button>
+    <input class="input" placeholder="Search projects…">
+  </div>
+  <div class="row" style="margin-top: 12px; gap: 32px;">
+    <div class="cap"><b>Primary</b> · gradient + inset ring</div>
+    <div class="cap"><b>Secondary</b> · soft gradient outline</div>
+    <div class="cap"><b>Ghost</b> · tertiary</div>
+  </div>
+  <div class="row" style="margin-top: 32px; align-items: flex-start;">
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <svg width="24" height="24" viewBox="0 0 96 96" fill="none">
+          <defs>
+            <linearGradient id="cardIconT" x1="48" y1="0" x2="48" y2="96" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4485FE"/><stop offset="1" stop-color="#0C50D0"/></linearGradient>
+            <linearGradient id="cardIconR" x1="48" y1="20" x2="48" y2="76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ABC8FF"/></linearGradient>
+          </defs>
+          <rect width="96" height="96" rx="22" fill="url(#cardIconT)"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="url(#cardIconR)"/>
+        </svg>
+        <div style="font-weight:600;font-size:15px;">Thesis — Chapter 3</div>
+      </div>
+      <div style="font-size:13px;color:var(--color-muted);line-height:1.5;">Edited 2 hours ago · 14 pages · shared with 2 collaborators</div>
+      <div style="margin-top:16px;"><button class="btn btn-primary" style="font-size:13px;padding:7px 14px;">Open project</button></div>
+    </div>
+    <div class="toast">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--color-cyan);display:inline-block;"></span>
+      Generating your document — section 2 of 5…
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Motion</h2>
+  <p class="section-note">One entrance animation: <b>Dot bloom</b>. A dot is born at the center, grows, then hollows open as it expands into the ring — one continuous motion — while a soft white glow breathes once mid-expansion. ~1.5s total. Use for splash, sign-in, and project-open. Always honor prefers-reduced-motion by showing the static logo.</p>
+  <style>
+    .m-stage svg .m-final { transform-box: fill-box; transform-origin: center; }
+    .m-play .m-final { animation: mF 0.9s 0.05s cubic-bezier(0.22, 1, 0.36, 1) both, mHide 0.01s 1.15s both; }
+    .m-play .m-ring { animation: mIn 0.2s 0.9s both; }
+    .m-play .m-glow { animation: mG 0.9s 0.4s ease-in-out both; opacity: 0; }
+    @keyframes mF { 0% { transform: scale(0.04); stroke-width: 41.6; opacity: 0; } 12% { opacity: 1; } 40% { transform: scale(0.42); stroke-width: 41.6; } 100% { transform: scale(1); stroke-width: 14.4; } }
+    @keyframes mHide { to { opacity: 0; } }
+    @keyframes mIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes mG { 0% { opacity: 0; } 40% { opacity: 0.55; } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .m-play .m-final, .m-play .m-ring, .m-play .m-glow { animation: none; } .m-play .m-final { opacity: 0; } .m-play .m-ring { opacity: 1; } }
+  </style>
+  <div class="row">
+    <div>
+      <div class="well m-stage m-play" id="motionCard" style="width: 460px; height: 200px; cursor: pointer;" onclick="this.classList.remove('m-play'); void this.offsetWidth; this.classList.add('m-play');">
+        <svg width="96" height="96" viewBox="0 0 96 96" fill="none" style="overflow: visible;">
+          <defs>
+            <linearGradient id="mt" x1="48" y1="0" x2="48" y2="96" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4485FE"/><stop offset="1" stop-color="#0C50D0"/></linearGradient>
+            <linearGradient id="mr" x1="48" y1="20" x2="48" y2="76" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ABC8FF"/></linearGradient>
+          </defs>
+          <rect width="96" height="96" rx="22" fill="url(#mt)"/>
+          <polygon class="m-final" points="38.3,27.2 57.8,27.2 68.8,38.3 68.8,57.8 57.8,68.8 38.3,68.8 27.2,57.8 27.2,38.3" stroke="url(#mr)" stroke-width="41.6" fill="none" stroke-linejoin="miter"/>
+          <path class="m-glow" fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="none" stroke="#FFFFFF" stroke-width="6" style="filter: blur(5px);"/>
+          <path class="m-ring" fill-rule="evenodd" clip-rule="evenodd" d="M35 20 L61 20 L76 35 L76 61 L61 76 L35 76 L20 61 L20 35 Z M41.5 34.4 L34.4 41.5 L34.4 54.5 L41.5 61.6 L54.5 61.6 L61.6 54.5 L61.6 41.5 L54.5 34.4 Z" fill="url(#mr)"/>
+        </svg>
+      </div>
+      <div class="cap"><b>Dot bloom</b> · click to replay</div>
+    </div>
+    <div style="max-width: 480px;">
+      <div class="cap" style="margin-top: 0; line-height: 1.7;">
+        <b>Spec</b><br>
+        One stroked midline octagon, gradient from frame one: born as a dot (scale 0.04, stroke 41.6 = solid), grows solid to 40%, then stroke thins to 14.4 as scale reaches 1 — the aperture opens during expansion · 0.9s · cubic-bezier(0.22, 1, 0.36, 1) · 0.05s delay<br>
+        Gradient ring swap: opacity fade 0.2s at 0.9s (pixel-identical, invisible)<br>
+        Glow: white stroke 6, blur 5px, peaks at 55% · 0.9s ease-in-out · starts at 0.4s (mid-expansion)<br>
+        Corners: miter throughout — never rounded
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Voice</h2>
+  <p class="section-note" style="margin-bottom: 16px;">Plain verbs, sentence case, no filler. Buttons say what happens: "Compile PDF", not "Submit". The product never says "please wait" — it says what it's doing.</p>
+  <div class="row">
+    <div class="card" style="width: 380px;"><div style="font-weight:600;font-size:14px;color:#0E8A4E;margin-bottom:8px;">Say</div><div style="font-size:14px;line-height:1.6;">Compile PDF · Generating section 2 of 5 · Compilation failed on line 42 — fix the unclosed brace</div></div>
+    <div class="card" style="width: 380px;"><div style="font-weight:600;font-size:14px;color:#C13515;margin-bottom:8px;">Don't say</div><div style="font-size:14px;line-height:1.6;">Submit · Please wait… · Oops! Something went wrong</div></div>
+  </div>
+</section>
+
+</body>
+</html>

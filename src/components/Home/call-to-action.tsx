@@ -14,7 +14,7 @@ export function CallToAction() {
             'linear-gradient(179deg, #c7dbff 0%, rgba(199, 219, 255, 0.35) 60%, rgba(255, 255, 255, 0) 75%)',
           WebkitMask: 'linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 62%)',
           mask: 'linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 62%)',
-          borderRadius: '1000px 1000px 0px 0px',
+          borderRadius: '50% 50% 0 0',
         }}
       />
       <div className="flex flex-col items-center gap-4 md:gap-6 relative z-10">

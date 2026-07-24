@@ -56,7 +56,7 @@ export function HeroSection() {
                     speedSegment={0.3}
                     delay={0.5}
                     as="span"
-                    className="text-[#478eff]"
+                    className="text-primary"
                   >
                     The modern Overleaf alternative
                   </TextEffect>
@@ -147,11 +147,11 @@ export function HeroSection() {
                         <div className="relative">
                           {/* Outer ring animation */}
                           <div
-                            className="absolute inset-0 rounded-full bg-[#478eff]/30 animate-ping"
+                            className="absolute inset-0 rounded-full bg-primary/30 animate-ping"
                             style={{ animationDuration: '2s' }}
                           />
                           {/* Play button */}
-                          <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#478eff] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[#478eff]/40 group-hover:shadow-2xl">
+                          <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 group-hover:shadow-primary/40 group-hover:shadow-2xl">
                             <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
                           </div>
                         </div>

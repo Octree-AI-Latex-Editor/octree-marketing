@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 
 import type { Header } from '@/payload-types'
 
+import { cn } from '@/utilities/ui'
 import { Logo } from '@/components/Logo/Logo'
 import { Cross, hatchStyle } from '@/components/grid'
 import { HeaderNav } from './Nav'
@@ -31,18 +32,29 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data, githubStars })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
+  const hasRails = pathname === '/' || pathname === '/about'
+
   return (
     <header
       className="relative z-20 border-b border-neutral-200 dark:border-neutral-800"
-      style={hatchStyle}
+      style={hasRails ? hatchStyle : undefined}
       {...(theme ? { 'data-theme': theme } : {})}
     >
-      <div className="relative mx-auto max-w-[var(--grid-max-width)] border-x border-neutral-200 bg-background px-6 dark:border-neutral-800">
-        <Cross className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
-        <Cross className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
+      <div
+        className={cn(
+          'relative mx-auto max-w-[var(--grid-max-width)] bg-background px-6',
+          hasRails && 'border-x border-neutral-200 dark:border-neutral-800',
+        )}
+      >
+        {hasRails && (
+          <>
+            <Cross className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
+            <Cross className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
+          </>
+        )}
         <div className="py-4 lg:py-6 flex justify-between items-center">
           <Link href="/">
-            <Logo loading="eager" priority="high" />
+            <Logo />
           </Link>
             <HeaderNav data={data} githubStars={githubStars} />
         </div>

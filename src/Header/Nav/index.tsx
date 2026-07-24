@@ -25,21 +25,21 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
     <nav className="flex gap-3 items-center">
       <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-6 xl:gap-8 items-center">
         {otherItems.map(({ link }, i) => {
-          return <CMSLink key={i} {...link} appearance="link" />
+          return <CMSLink key={i} {...link} appearance="link" className="text-base" />
         })}
-        <Button asChild variant="link" size="clear">
+        <Button asChild variant="link" size="clear" className="text-base">
           <Link href="/learn">Learn</Link>
         </Button>
-        <Button asChild variant="link" size="clear">
+        <Button asChild variant="link" size="clear" className="text-base">
           <Link href="https://tools.useoctree.com" target="_blank" rel="noopener noreferrer">
             Tools
           </Link>
         </Button>
-        <Button asChild variant="link" size="clear">
+        <Button asChild variant="link" size="clear" className="text-base">
           <Link href="/docs/compile-api">Docs</Link>
         </Button>
         {contactItems.map(({ link }, i) => {
-          return <CMSLink key={i} {...link} appearance="link" />
+          return <CMSLink key={i} {...link} appearance="link" className="text-base" />
         })}
       </div>
 

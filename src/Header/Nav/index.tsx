@@ -18,9 +18,8 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
   githubStars,
 }) => {
   const navItems = data?.navItems || []
-  const lastLabels = ['Contact', 'Help']
-  const contactItems = navItems.filter(({ link }) => lastLabels.includes(link.label))
-  const otherItems = navItems.filter(({ link }) => !lastLabels.includes(link.label))
+  const contactItems = navItems.filter(({ link }) => link.label === 'Contact')
+  const otherItems = navItems.filter(({ link }) => link.label !== 'Contact')
 
   return (
     <nav className="flex gap-3 items-center">

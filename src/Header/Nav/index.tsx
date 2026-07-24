@@ -18,11 +18,13 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
   githubStars,
 }) => {
   const navItems = data?.navItems || []
+  const contactItems = navItems.filter(({ link }) => link.label === 'Contact')
+  const otherItems = navItems.filter(({ link }) => link.label !== 'Contact')
 
   return (
     <nav className="flex gap-3 items-center">
       <div className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-6 xl:gap-8 items-center">
-        {navItems.map(({ link }, i) => {
+        {otherItems.map(({ link }, i) => {
           return <CMSLink key={i} {...link} appearance="link" />
         })}
         <Button asChild variant="link" size="clear">
@@ -36,6 +38,9 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
         <Button asChild variant="link" size="clear">
           <Link href="/docs/compile-api">Docs</Link>
         </Button>
+        {contactItems.map(({ link }, i) => {
+          return <CMSLink key={i} {...link} appearance="link" />
+        })}
       </div>
 
       <div className="flex items-center gap-1 text-neutral-800">
@@ -80,7 +85,7 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
         </SheetTrigger>
         <SheetContent side="right" className="p-6">
           <div className="flex flex-col gap-4 mt-8">
-            {navItems.map(({ link }, i) => {
+            {otherItems.map(({ link }, i) => {
               return <CMSLink key={i} {...link} appearance="link" className="text-lg" />
             })}
             <Button asChild variant="link" size="clear" className="text-lg">
@@ -94,6 +99,9 @@ export const HeaderNav: React.FC<{ data: HeaderType; githubStars: number | null 
             <Button asChild variant="link" size="clear" className="text-lg">
               <Link href="/docs/compile-api">Docs</Link>
             </Button>
+            {contactItems.map(({ link }, i) => {
+              return <CMSLink key={i} {...link} appearance="link" className="text-lg" />
+            })}
             <Link href="https://app.useoctree.com" target="_blank" rel="noopener noreferrer">
               <Button variant="default" className="w-full">
                 Login

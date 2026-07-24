@@ -32,21 +32,21 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data, githubStars })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
-  const isHome = pathname === '/'
+  const hasRails = pathname === '/' || pathname === '/about'
 
   return (
     <header
       className="relative z-20 border-b border-neutral-200 dark:border-neutral-800"
-      style={isHome ? hatchStyle : undefined}
+      style={hasRails ? hatchStyle : undefined}
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div
         className={cn(
           'relative mx-auto max-w-[var(--grid-max-width)] bg-background px-6',
-          isHome && 'border-x border-neutral-200 dark:border-neutral-800',
+          hasRails && 'border-x border-neutral-200 dark:border-neutral-800',
         )}
       >
-        {isHome && (
+        {hasRails && (
           <>
             <Cross className="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
             <Cross className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
